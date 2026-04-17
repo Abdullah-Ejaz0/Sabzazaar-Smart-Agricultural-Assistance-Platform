@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Sabzazaar</string>
+    <string name="agrinova">AgriNova</string>
+    <string name="smart_farming_assistant">Smart Farming Assistant</string>
+    <string name="agrinova_logo">AgriNova Logo</string>
+    <string name="secure_email_password_access"><![CDATA[Secure email & password access]]></string>
+    <string name="expert_login">Expert Login</string>
+    <string name="continue_with_phone_number_otp">Continue with phone number (OTP)</string>
+    <string name="farmer_login">Farmer Login</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="start_new_farmer">Start (New Farmer)</string>
+    <string name="start">Start</string>
+    <string name="continue_as_guest">Continue as Guest</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="_03xx_xxxxxxx">03XX XXXXXXX</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="phone">Phone</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="code_sent_to_92_300_1234567">Code sent to +92 300 1234567</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="verify">Verify</string>
+    <string name="incorrect_otp">Incorrect OTP</string>
+    <string name="language">Language / زبان</string>
+    <string name="urdu">اردو</string>
+    <string name="next">Next</string>
+    <string name="english">English</string>
+    <string name="continue_1">Continue</string>
+    <string name="no">No / نہیں</string>
+    <string name="yes">Yes / ہاں</string>
+    <string name="voice_assistance">Voice Assistance</string>
 </resources>
