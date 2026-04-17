@@ -29,6 +29,7 @@ from .serializers import (
     SoilHealthCardUpdateSerializer,
     StartLanguageOnboardingSerializer,
     UserPreferenceSerializer,
+    UserProfileUpsertSerializer,
     VoiceAssistantInputSerializer,
 )
 
@@ -340,3 +341,40 @@ def expert_community_post_detail(request, post_id):
         return Response({'detail': 'Expert post not found.'}, status=status.HTTP_404_NOT_FOUND)
 
     return Response(ExpertCommunityPostSerializer(post).data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def user_profile_detail(request):
+    phone_number = request.query_params.get('phone_number')
+    if not phone_number:
+        return Response({'detail': 'phone_number query parameter is required.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        user_preference = UserPreference.objects.get(phone_number=phone_number)
+    except UserPreference.DoesNotExist:
+        return Response({'detail': 'Phone number not found. Register user first.'}, status=status.HTTP_404_NOT_FOUND)
+
+    return Response(UserPreferenceSerializer(user_preference, context={'request': request}).data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST', 'PATCH'])
+@permission_classes([AllowAny])
+@parser_classes([MultiPartParser, FormParser, JSONParser])
+def upsert_user_profile(request):
+    partial = request.method == 'PATCH'
+    serializer = UserProfileUpsertSerializer(data=request.data, partial=partial)
+    serializer.is_valid(raise_exception=True)
+
+    phone_number = serializer.validated_data['phone_number']
+    try:
+        user_preference = UserPreference.objects.get(phone_number=phone_number)
+    except UserPreference.DoesNotExist:
+        return Response({'detail': 'Phone number not found. Register user first.'}, status=status.HTTP_404_NOT_FOUND)
+
+    for field in ['full_name', 'location', 'profile_photo']:
+        if field in serializer.validated_data:
+            setattr(user_preference, field, serializer.validated_data[field])
+
+    user_preference.save()
+    return Response(UserPreferenceSerializer(user_preference, context={'request': request}).data, status=status.HTTP_200_OK)

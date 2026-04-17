@@ -36,17 +36,38 @@ class CancelOnboardingSerializer(serializers.Serializer):
 
 
 class UserPreferenceSerializer(serializers.ModelSerializer):
+    profile_photo_url = serializers.SerializerMethodField()
+
     class Meta:
         model = UserPreference
         fields = [
             'id',
             'phone_number',
+            'full_name',
+            'location',
+            'profile_photo',
+            'profile_photo_url',
             'preferred_language',
             'voice_assistant_enabled',
             'created_at',
             'updated_at',
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']
+
+    def get_profile_photo_url(self, obj):
+        if not obj.profile_photo:
+            return None
+        request = self.context.get('request')
+        if request is None:
+            return obj.profile_photo.url
+        return request.build_absolute_uri(obj.profile_photo.url)
+
+
+class UserProfileUpsertSerializer(serializers.Serializer):
+    phone_number = serializers.CharField(max_length=25)
+    full_name = serializers.CharField(max_length=120, required=False, allow_blank=True)
+    location = serializers.CharField(max_length=120, required=False, allow_blank=True)
+    profile_photo = serializers.ImageField(required=False, allow_null=True)
 
 
 class ScanImageUploadInputSerializer(serializers.Serializer):

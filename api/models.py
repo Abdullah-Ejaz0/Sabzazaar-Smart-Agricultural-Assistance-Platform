@@ -6,6 +6,9 @@ import uuid
 
 class UserPreference(models.Model):
 	phone_number = models.CharField(max_length=25, unique=True)
+	full_name = models.CharField(max_length=120, blank=True, default='')
+	location = models.CharField(max_length=120, blank=True, default='')
+	profile_photo = models.ImageField(upload_to='profiles/%Y/%m/%d/', blank=True, null=True)
 	preferred_language = models.CharField(max_length=30, blank=True, default='')
 	voice_assistant_enabled = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)

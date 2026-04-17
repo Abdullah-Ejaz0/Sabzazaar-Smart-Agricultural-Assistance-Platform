@@ -11,8 +11,8 @@ from .models import (
 
 @admin.register(UserPreference)
 class UserPreferenceAdmin(admin.ModelAdmin):
-	list_display = ('id', 'phone_number', 'preferred_language', 'voice_assistant_enabled', 'created_at', 'updated_at')
-	search_fields = ('phone_number', 'preferred_language')
+	list_display = ('id', 'phone_number', 'full_name', 'location', 'preferred_language', 'voice_assistant_enabled', 'created_at', 'updated_at')
+	search_fields = ('phone_number', 'full_name', 'location', 'preferred_language')
 
 
 @admin.register(LanguageOnboardingSession)
