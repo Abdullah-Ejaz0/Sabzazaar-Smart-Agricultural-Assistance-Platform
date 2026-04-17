@@ -6,13 +6,16 @@ from rest_framework import status
 from rest_framework.parsers import FormParser, MultiPartParser
 from django.utils import timezone
 
-from .models import LanguageOnboardingSession, ScanImageUpload, UserPreference
+from .models import LanguageOnboardingSession, ScanImageUpload, SoilHealthCard, UserPreference
 from .serializers import (
     CancelOnboardingSerializer,
     LanguageOnboardingSessionSerializer,
     PhoneInputSerializer,
     ScanImageUploadInputSerializer,
     ScanImageUploadSerializer,
+    SoilHealthCardCreateSerializer,
+    SoilHealthCardSerializer,
+    SoilHealthCardUpdateSerializer,
     StartLanguageOnboardingSerializer,
     UserPreferenceSerializer,
     VoiceAssistantInputSerializer,
@@ -156,3 +159,67 @@ def list_scan_images(request):
 
     response_serializer = ScanImageUploadSerializer(queryset, many=True, context={'request': request})
     return Response(response_serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST', 'GET'])
+@permission_classes([AllowAny])
+def soil_health_cards(request):
+    if request.method == 'POST':
+        serializer = SoilHealthCardCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        phone_number = serializer.validated_data['phone_number']
+
+        try:
+            user_preference = UserPreference.objects.get(phone_number=phone_number)
+        except UserPreference.DoesNotExist:
+            return Response(
+                {'detail': 'Phone number not found. Register user first.'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        card = SoilHealthCard.objects.create(
+            user_preference=user_preference,
+            land_name=serializer.validated_data.get('land_name', ''),
+            ph=serializer.validated_data['ph'],
+            nitrogen=serializer.validated_data['nitrogen'],
+            hydrogen=serializer.validated_data['hydrogen'],
+            phosphate=serializer.validated_data['phosphate'],
+            notes=serializer.validated_data.get('notes', ''),
+        )
+        response_serializer = SoilHealthCardSerializer(card)
+        return Response(response_serializer.data, status=status.HTTP_201_CREATED)
+
+    phone_number = request.query_params.get('phone_number')
+    queryset = SoilHealthCard.objects.select_related('user_preference').all()
+    if phone_number:
+        queryset = queryset.filter(user_preference__phone_number=phone_number)
+
+    response_serializer = SoilHealthCardSerializer(queryset, many=True)
+    return Response(response_serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
+@permission_classes([AllowAny])
+def soil_health_card_detail(request, card_id):
+    try:
+        card = SoilHealthCard.objects.select_related('user_preference').get(pk=card_id)
+    except SoilHealthCard.DoesNotExist:
+        return Response({'detail': 'Soil health card not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        return Response(SoilHealthCardSerializer(card).data, status=status.HTTP_200_OK)
+
+    if request.method in ['PUT', 'PATCH']:
+        partial = request.method == 'PATCH'
+        serializer = SoilHealthCardUpdateSerializer(data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+
+        for field, value in serializer.validated_data.items():
+            setattr(card, field, value)
+        card.save()
+
+        return Response(SoilHealthCardSerializer(card).data, status=status.HTTP_200_OK)
+
+    card.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)

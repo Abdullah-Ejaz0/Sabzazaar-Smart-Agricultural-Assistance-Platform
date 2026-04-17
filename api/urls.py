@@ -4,6 +4,8 @@ from .views import (
     list_scan_images,
     register_phone_number,
     save_voice_assistant_preference,
+    soil_health_card_detail,
+    soil_health_cards,
     start_language_onboarding,
     upload_scan_image,
 )
@@ -15,4 +17,6 @@ urlpatterns = [
     path('users/cancel-onboarding/', cancel_onboarding),
     path('scan/upload-image/', upload_scan_image),
     path('scan/images/', list_scan_images),
+    path('soil-health/cards/', soil_health_cards),
+    path('soil-health/cards/<int:card_id>/', soil_health_card_detail),
 ]

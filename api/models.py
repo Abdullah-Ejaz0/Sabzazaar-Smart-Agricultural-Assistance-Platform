@@ -53,3 +53,26 @@ class ScanImageUpload(models.Model):
 
 	def __str__(self):
 		return f"ScanImageUpload #{self.pk} ({self.user_preference.phone_number})"
+
+
+class SoilHealthCard(models.Model):
+	user_preference = models.ForeignKey(
+		UserPreference,
+		on_delete=models.CASCADE,
+		related_name='soil_health_cards',
+	)
+	land_name = models.CharField(max_length=120, blank=True, default='')
+	ph = models.FloatField()
+	nitrogen = models.FloatField()
+	hydrogen = models.FloatField()
+	phosphate = models.FloatField()
+	notes = models.TextField(blank=True, default='')
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		ordering = ['-created_at']
+
+	def __str__(self):
+		name = self.land_name or 'Unnamed land'
+		return f"SoilHealthCard #{self.pk} ({name})"
