@@ -3,14 +3,16 @@ from rest_framework.decorators import parser_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.parsers import FormParser, MultiPartParser
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from django.utils import timezone
 
-from .models import LanguageOnboardingSession, ScanImageUpload, SoilHealthCard, UserPreference
+from .models import LanguageOnboardingSession, QuestionPost, ScanImageUpload, SoilHealthCard, UserPreference
 from .serializers import (
     CancelOnboardingSerializer,
     LanguageOnboardingSessionSerializer,
     PhoneInputSerializer,
+    QuestionPostCreateSerializer,
+    QuestionPostSerializer,
     ScanImageUploadInputSerializer,
     ScanImageUploadSerializer,
     SoilHealthCardCreateSerializer,
@@ -240,3 +242,49 @@ def soil_health_card_detail(request, card_id):
 
     card.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['POST', 'GET'])
+@permission_classes([AllowAny])
+@parser_classes([MultiPartParser, FormParser, JSONParser])
+def question_posts(request):
+    if request.method == 'POST':
+        serializer = QuestionPostCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        phone_number = serializer.validated_data['phone_number']
+        try:
+            user_preference = UserPreference.objects.get(phone_number=phone_number)
+        except UserPreference.DoesNotExist:
+            return Response(
+                {'detail': 'Phone number not found. Register user first.'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        post = QuestionPost.objects.create(
+            user_preference=user_preference,
+            question_text=serializer.validated_data['question_text'],
+            crop_disease=serializer.validated_data['crop_disease'],
+            photo=serializer.validated_data.get('photo'),
+        )
+        response_serializer = QuestionPostSerializer(post, context={'request': request})
+        return Response(response_serializer.data, status=status.HTTP_201_CREATED)
+
+    crop_disease = request.query_params.get('crop_disease')
+    queryset = QuestionPost.objects.select_related('user_preference').all()
+    if crop_disease:
+        queryset = queryset.filter(crop_disease__icontains=crop_disease)
+
+    response_serializer = QuestionPostSerializer(queryset, many=True, context={'request': request})
+    return Response(response_serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def question_post_detail(request, post_id):
+    try:
+        post = QuestionPost.objects.select_related('user_preference').get(pk=post_id)
+    except QuestionPost.DoesNotExist:
+        return Response({'detail': 'Question post not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+    return Response(QuestionPostSerializer(post, context={'request': request}).data, status=status.HTTP_200_OK)

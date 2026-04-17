@@ -76,3 +76,22 @@ class SoilHealthCard(models.Model):
 	def __str__(self):
 		name = self.land_name or 'Unnamed land'
 		return f"SoilHealthCard #{self.pk} ({name})"
+
+
+class QuestionPost(models.Model):
+	user_preference = models.ForeignKey(
+		UserPreference,
+		on_delete=models.CASCADE,
+		related_name='question_posts',
+	)
+	question_text = models.TextField()
+	crop_disease = models.CharField(max_length=120)
+	photo = models.ImageField(upload_to='question_posts/%Y/%m/%d/', blank=True, null=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		ordering = ['-created_at']
+
+	def __str__(self):
+		return f"QuestionPost #{self.pk} ({self.crop_disease})"

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import LanguageOnboardingSession, ScanImageUpload, SoilHealthCard, UserPreference
+from .models import LanguageOnboardingSession, QuestionPost, ScanImageUpload, SoilHealthCard, UserPreference
 
 
 @admin.register(UserPreference)
@@ -25,4 +25,11 @@ class ScanImageUploadAdmin(admin.ModelAdmin):
 class SoilHealthCardAdmin(admin.ModelAdmin):
 	list_display = ('id', 'user_preference', 'land_name', 'ph', 'nitrogen', 'hydrogen', 'phosphate', 'created_at')
 	search_fields = ('user_preference__phone_number', 'land_name')
+	list_filter = ('created_at',)
+
+
+@admin.register(QuestionPost)
+class QuestionPostAdmin(admin.ModelAdmin):
+	list_display = ('id', 'user_preference', 'crop_disease', 'created_at')
+	search_fields = ('user_preference__phone_number', 'crop_disease', 'question_text')
 	list_filter = ('created_at',)

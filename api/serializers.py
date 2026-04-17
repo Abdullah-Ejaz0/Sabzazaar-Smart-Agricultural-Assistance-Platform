@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import LanguageOnboardingSession, ScanImageUpload, SoilHealthCard, UserPreference
+from .models import LanguageOnboardingSession, QuestionPost, ScanImageUpload, SoilHealthCard, UserPreference
 
 
 class StartLanguageOnboardingSerializer(serializers.Serializer):
@@ -112,3 +112,37 @@ class SoilHealthCardSerializer(serializers.ModelSerializer):
             'updated_at',
         ]
         read_only_fields = fields
+
+
+class QuestionPostCreateSerializer(serializers.Serializer):
+    phone_number = serializers.CharField(max_length=25)
+    question_text = serializers.CharField()
+    crop_disease = serializers.CharField(max_length=120)
+    photo = serializers.ImageField(required=False, allow_null=True)
+
+
+class QuestionPostSerializer(serializers.ModelSerializer):
+    phone_number = serializers.CharField(source='user_preference.phone_number', read_only=True)
+    photo_url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = QuestionPost
+        fields = [
+            'id',
+            'phone_number',
+            'question_text',
+            'crop_disease',
+            'photo',
+            'photo_url',
+            'created_at',
+            'updated_at',
+        ]
+        read_only_fields = fields
+
+    def get_photo_url(self, obj):
+        if not obj.photo:
+            return None
+        request = self.context.get('request')
+        if request is None:
+            return obj.photo.url
+        return request.build_absolute_uri(obj.photo.url)

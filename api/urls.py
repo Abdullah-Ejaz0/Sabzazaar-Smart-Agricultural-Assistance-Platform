@@ -2,6 +2,8 @@ from django.urls import path
 from .views import (
     cancel_onboarding,
     list_scan_images,
+    question_post_detail,
+    question_posts,
     register_phone_number,
     save_voice_assistant_preference,
     soil_health_card_detail,
@@ -19,4 +21,6 @@ urlpatterns = [
     path('scan/images/', list_scan_images),
     path('soil-health/cards/', soil_health_cards),
     path('soil-health/cards/<int:card_id>/', soil_health_card_detail),
+    path('community/questions/', question_posts),
+    path('community/questions/<int:post_id>/', question_post_detail),
 ]
