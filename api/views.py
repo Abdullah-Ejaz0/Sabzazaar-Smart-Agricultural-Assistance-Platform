@@ -1,14 +1,18 @@
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import parser_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.parsers import FormParser, MultiPartParser
 from django.utils import timezone
 
-from .models import LanguageOnboardingSession, UserPreference
+from .models import LanguageOnboardingSession, ScanImageUpload, UserPreference
 from .serializers import (
     CancelOnboardingSerializer,
     LanguageOnboardingSessionSerializer,
     PhoneInputSerializer,
+    ScanImageUploadInputSerializer,
+    ScanImageUploadSerializer,
     StartLanguageOnboardingSerializer,
     UserPreferenceSerializer,
     VoiceAssistantInputSerializer,
@@ -111,3 +115,44 @@ def cancel_onboarding(request):
         return Response({'detail': 'Session already removed or token invalid.'}, status=status.HTTP_404_NOT_FOUND)
 
     return Response({'detail': 'Onboarding cancelled and temporary language removed.'}, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+@parser_classes([MultiPartParser, FormParser])
+def upload_scan_image(request):
+    serializer = ScanImageUploadInputSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+
+    phone_number = serializer.validated_data['phone_number']
+
+    try:
+        user_preference = UserPreference.objects.get(phone_number=phone_number)
+    except UserPreference.DoesNotExist:
+        return Response(
+            {'detail': 'Phone number not found. Register user first.'},
+            status=status.HTTP_404_NOT_FOUND,
+        )
+
+    scan_upload = ScanImageUpload.objects.create(
+        user_preference=user_preference,
+        image=serializer.validated_data['image'],
+        source=serializer.validated_data['source'],
+        analysis_status='pending',
+    )
+
+    response_serializer = ScanImageUploadSerializer(scan_upload, context={'request': request})
+    return Response(response_serializer.data, status=status.HTTP_201_CREATED)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def list_scan_images(request):
+    phone_number = request.query_params.get('phone_number')
+    queryset = ScanImageUpload.objects.select_related('user_preference').all()
+
+    if phone_number:
+        queryset = queryset.filter(user_preference__phone_number=phone_number)
+
+    response_serializer = ScanImageUploadSerializer(queryset, many=True, context={'request': request})
+    return Response(response_serializer.data, status=status.HTTP_200_OK)

@@ -29,3 +29,27 @@ class LanguageOnboardingSession(models.Model):
 
 	def __str__(self):
 		return f"{self.token} ({self.preferred_language})"
+
+
+class ScanImageUpload(models.Model):
+	class ImageSource(models.TextChoices):
+		CAMERA = 'camera', 'Camera'
+		GALLERY = 'gallery', 'Gallery'
+
+	user_preference = models.ForeignKey(
+		UserPreference,
+		on_delete=models.CASCADE,
+		related_name='scan_uploads',
+	)
+	image = models.ImageField(upload_to='scan_uploads/%Y/%m/%d/')
+	source = models.CharField(max_length=20, choices=ImageSource.choices)
+	analysis_status = models.CharField(max_length=20, default='pending')
+	analysis_result = models.TextField(blank=True, default='')
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		ordering = ['-created_at']
+
+	def __str__(self):
+		return f"ScanImageUpload #{self.pk} ({self.user_preference.phone_number})"
