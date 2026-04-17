@@ -372,7 +372,7 @@ def upsert_user_profile(request):
     except UserPreference.DoesNotExist:
         return Response({'detail': 'Phone number not found. Register user first.'}, status=status.HTTP_404_NOT_FOUND)
 
-    for field in ['full_name', 'location', 'profile_photo']:
+    for field in ['full_name', 'location', 'profile_photo', 'preferred_language', 'voice_assistant_enabled']:
         if field in serializer.validated_data:
             setattr(user_preference, field, serializer.validated_data[field])
 

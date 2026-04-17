@@ -68,6 +68,8 @@ class UserProfileUpsertSerializer(serializers.Serializer):
     full_name = serializers.CharField(max_length=120, required=False, allow_blank=True)
     location = serializers.CharField(max_length=120, required=False, allow_blank=True)
     profile_photo = serializers.ImageField(required=False, allow_null=True)
+    preferred_language = serializers.CharField(max_length=30, required=False, allow_blank=True)
+    voice_assistant_enabled = serializers.BooleanField(required=False)
 
 
 class ScanImageUploadInputSerializer(serializers.Serializer):
