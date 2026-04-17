@@ -6,9 +6,18 @@ from rest_framework import status
 from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from django.utils import timezone
 
-from .models import LanguageOnboardingSession, QuestionPost, ScanImageUpload, SoilHealthCard, UserPreference
+from .models import (
+    ExpertCommunityPost,
+    LanguageOnboardingSession,
+    QuestionPost,
+    ScanImageUpload,
+    SoilHealthCard,
+    UserPreference,
+)
 from .serializers import (
     CancelOnboardingSerializer,
+    ExpertCommunityPostCreateSerializer,
+    ExpertCommunityPostSerializer,
     LanguageOnboardingSessionSerializer,
     PhoneInputSerializer,
     QuestionPostCreateSerializer,
@@ -288,3 +297,46 @@ def question_post_detail(request, post_id):
         return Response({'detail': 'Question post not found.'}, status=status.HTTP_404_NOT_FOUND)
 
     return Response(QuestionPostSerializer(post, context={'request': request}).data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST', 'GET'])
+@permission_classes([AllowAny])
+def expert_community_posts(request):
+    if request.method == 'POST':
+        serializer = ExpertCommunityPostCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        phone_number = serializer.validated_data['phone_number']
+        try:
+            user_preference = UserPreference.objects.get(phone_number=phone_number)
+        except UserPreference.DoesNotExist:
+            return Response(
+                {'detail': 'Phone number not found. Register user first.'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        post = ExpertCommunityPost.objects.create(
+            user_preference=user_preference,
+            title=serializer.validated_data['title'],
+            message=serializer.validated_data['message'],
+            target_region=serializer.validated_data.get('target_region', ''),
+        )
+        return Response(ExpertCommunityPostSerializer(post).data, status=status.HTTP_201_CREATED)
+
+    target_region = request.query_params.get('target_region')
+    queryset = ExpertCommunityPost.objects.select_related('user_preference').all()
+    if target_region:
+        queryset = queryset.filter(target_region__icontains=target_region)
+
+    return Response(ExpertCommunityPostSerializer(queryset, many=True).data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def expert_community_post_detail(request, post_id):
+    try:
+        post = ExpertCommunityPost.objects.select_related('user_preference').get(pk=post_id)
+    except ExpertCommunityPost.DoesNotExist:
+        return Response({'detail': 'Expert post not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+    return Response(ExpertCommunityPostSerializer(post).data, status=status.HTTP_200_OK)

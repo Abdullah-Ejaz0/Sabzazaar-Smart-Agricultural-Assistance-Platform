@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import (
     cancel_onboarding,
+    expert_community_post_detail,
+    expert_community_posts,
     list_scan_images,
     question_post_detail,
     question_posts,
@@ -23,4 +25,6 @@ urlpatterns = [
     path('soil-health/cards/<int:card_id>/', soil_health_card_detail),
     path('community/questions/', question_posts),
     path('community/questions/<int:post_id>/', question_post_detail),
+    path('community/expert-posts/', expert_community_posts),
+    path('community/expert-posts/<int:post_id>/', expert_community_post_detail),
 ]

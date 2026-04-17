@@ -1,6 +1,13 @@
 from rest_framework import serializers
 
-from .models import LanguageOnboardingSession, QuestionPost, ScanImageUpload, SoilHealthCard, UserPreference
+from .models import (
+    ExpertCommunityPost,
+    LanguageOnboardingSession,
+    QuestionPost,
+    ScanImageUpload,
+    SoilHealthCard,
+    UserPreference,
+)
 
 
 class StartLanguageOnboardingSerializer(serializers.Serializer):
@@ -146,3 +153,27 @@ class QuestionPostSerializer(serializers.ModelSerializer):
         if request is None:
             return obj.photo.url
         return request.build_absolute_uri(obj.photo.url)
+
+
+class ExpertCommunityPostCreateSerializer(serializers.Serializer):
+    phone_number = serializers.CharField(max_length=25)
+    title = serializers.CharField(max_length=200)
+    message = serializers.CharField()
+    target_region = serializers.CharField(max_length=120, required=False, allow_blank=True)
+
+
+class ExpertCommunityPostSerializer(serializers.ModelSerializer):
+    phone_number = serializers.CharField(source='user_preference.phone_number', read_only=True)
+
+    class Meta:
+        model = ExpertCommunityPost
+        fields = [
+            'id',
+            'phone_number',
+            'title',
+            'message',
+            'target_region',
+            'created_at',
+            'updated_at',
+        ]
+        read_only_fields = fields

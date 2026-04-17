@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import LanguageOnboardingSession, QuestionPost, ScanImageUpload, SoilHealthCard, UserPreference
+from .models import (
+	ExpertCommunityPost,
+	LanguageOnboardingSession,
+	QuestionPost,
+	ScanImageUpload,
+	SoilHealthCard,
+	UserPreference,
+)
 
 
 @admin.register(UserPreference)
@@ -32,4 +39,11 @@ class SoilHealthCardAdmin(admin.ModelAdmin):
 class QuestionPostAdmin(admin.ModelAdmin):
 	list_display = ('id', 'user_preference', 'crop_disease', 'created_at')
 	search_fields = ('user_preference__phone_number', 'crop_disease', 'question_text')
+	list_filter = ('created_at',)
+
+
+@admin.register(ExpertCommunityPost)
+class ExpertCommunityPostAdmin(admin.ModelAdmin):
+	list_display = ('id', 'user_preference', 'title', 'target_region', 'created_at')
+	search_fields = ('user_preference__phone_number', 'title', 'message', 'target_region')
 	list_filter = ('created_at',)
