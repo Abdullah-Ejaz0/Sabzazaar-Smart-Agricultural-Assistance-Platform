@@ -215,11 +215,28 @@ def soil_health_card_detail(request, card_id):
         serializer = SoilHealthCardUpdateSerializer(data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
 
+        if serializer.validated_data['phone_number'] != card.user_preference.phone_number:
+            return Response(
+                {'detail': 'Phone number does not match this soil health card.'},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
         for field, value in serializer.validated_data.items():
+            if field == 'phone_number':
+                continue
             setattr(card, field, value)
         card.save()
 
         return Response(SoilHealthCardSerializer(card).data, status=status.HTTP_200_OK)
+
+    phone_number = request.data.get('phone_number')
+    if not phone_number:
+        return Response({'detail': 'phone_number is required for delete.'}, status=status.HTTP_400_BAD_REQUEST)
+    if phone_number != card.user_preference.phone_number:
+        return Response(
+            {'detail': 'Phone number does not match this soil health card.'},
+            status=status.HTTP_403_FORBIDDEN,
+        )
 
     card.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)

@@ -85,6 +85,7 @@ class SoilHealthCardCreateSerializer(serializers.Serializer):
 
 
 class SoilHealthCardUpdateSerializer(serializers.Serializer):
+    phone_number = serializers.CharField(max_length=25)
     land_name = serializers.CharField(max_length=120, required=False, allow_blank=True)
     ph = serializers.FloatField(min_value=0, max_value=14, required=False)
     nitrogen = serializers.FloatField(min_value=0, required=False)
