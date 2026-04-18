@@ -23,10 +23,10 @@
             android:name=".VoicePreference"
             android:exported="false" />
         <activity
-            android:name=".Permisssions"
+            android:name=".Permissions"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".LanguagePreference"
             android:exported="false" />
         <activity
             android:name=".ExpertLogin"
@@ -44,7 +44,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LanguagePreference"
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -28,4 +28,6 @@
     <string name="no">No / نہیں</string>
     <string name="yes">Yes / ہاں</string>
     <string name="voice_assistance">Voice Assistance</string>
+    <string name="subzazaar">Subzazaar</string>
+    <string name="permissions">Permissions</string>
 </resources>
