@@ -7,19 +7,6 @@
     android:background="#FFFFFF">
 
     <ImageView
-        android:id="@+id/backBtn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="10dp"
-        android:src="@drawable/ic_arrow_back"
-        app:tint="#2e7d32"
-        android:background="@null"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <ImageView
         android:id="@+id/speakerBtn"
         android:layout_width="48dp"
         android:layout_height="48dp"

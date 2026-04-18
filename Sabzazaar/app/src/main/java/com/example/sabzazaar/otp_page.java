@@ -2,6 +2,7 @@ package com.example.sabzazaar;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -19,7 +20,10 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 
-import java.security.Permissions;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 import java.util.Random;
 
 public class otp_page extends AppCompatActivity {
@@ -72,6 +76,11 @@ public class otp_page extends AppCompatActivity {
 
         if (phone != null) {
             subtitle.setText("Code sent to " + phone);
+        }
+
+        // Display OTP for testing purposes (remove later)
+        if (correctOtp != null) {
+            Toast.makeText(this, "OTP for testing: " + correctOtp, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -170,13 +179,103 @@ public class otp_page extends AppCompatActivity {
                         otp6.getText().toString().trim();
 
         if (enteredOtp.equals(correctOtp)) {
-
-            startActivity(new Intent(this, Permissions.class));
-            finish();
-
+            // OTP verified, now check phone number with backend
+            checkPhoneNumberWithBackend();
         } else {
             showError();
         }
+    }
+
+    private void checkPhoneNumberWithBackend() {
+        // Create API service and make request
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        PhoneRequest phoneRequest = new PhoneRequest(phone);
+        
+        // Debug logging
+        Toast.makeText(otp_page.this, "Sending phone: " + phone, Toast.LENGTH_SHORT).show();
+
+        Call<CheckPhoneResponse> call = apiService.checkPhoneNumber(phoneRequest);
+        call.enqueue(new Callback<CheckPhoneResponse>() {
+            @Override
+            public void onResponse(Call<CheckPhoneResponse> call, Response<CheckPhoneResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    CheckPhoneResponse apiResponse = response.body();
+                    int status = apiResponse.status;
+
+                    if (status == 1) {
+                        // User exists - Login flow
+                        handleLoginFlow(apiResponse);
+                    } else if (status == 0) {
+                        // New user - Signup flow
+                        handleSignupFlow();
+                    }
+                } else {
+                    // Better error logging for debugging
+                    String errorMsg = "Error Code: " + response.code();
+                    try {
+                        if (response.errorBody() != null) {
+                            String errorBody = response.errorBody().string();
+                            // Log first 500 chars of error
+                            if (errorBody.length() > 500) {
+                                errorMsg += "\n" + errorBody.substring(0, 500) + "...";
+                            } else {
+                                errorMsg += "\n" + errorBody;
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(otp_page.this, errorMsg, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CheckPhoneResponse> call, Throwable t) {
+                Toast.makeText(otp_page.this, "Connection Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void handleLoginFlow(CheckPhoneResponse response) {
+        UserData userData = response.user;
+        if (userData != null) {
+            // Save user preferences to SharedPreferences
+            SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+
+            editor.putString("phone_number", userData.phone_number);
+            editor.putString("preferred_language", userData.preferred_language != null ? userData.preferred_language : "");
+            editor.putBoolean("voice_assistant_enabled", userData.voice_assistant_enabled);
+            editor.putString("full_name", userData.full_name != null ? userData.full_name : "");
+            editor.putString("location", userData.location != null ? userData.location : "");
+            editor.putString("profile_photo", userData.profile_photo != null ? userData.profile_photo : "");
+
+            editor.apply();
+
+            // Check if permissions are given, if not go to Permissions page
+            if (!allPermissionsGranted()) {
+                startActivity(new Intent(otp_page.this, Permissions.class));
+            } else {
+                // All permissions granted, go to MainActivity
+                startActivity(new Intent(otp_page.this, MainActivity.class));
+            }
+            finish();
+        }
+    }
+
+    private void handleSignupFlow() {
+        // New user - go to LanguagePreference page to collect preferences
+        Intent intent = new Intent(otp_page.this, LanguagePreference.class);
+        intent.putExtra("phone", phone);
+        startActivity(intent);
+        finish();
+    }
+
+    private boolean allPermissionsGranted() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void generateAndSendOtp() {
