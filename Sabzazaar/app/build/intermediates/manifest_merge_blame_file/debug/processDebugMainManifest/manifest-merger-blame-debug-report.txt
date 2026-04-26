@@ -1,0 +1,348 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.sabzazaar"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="24"
+8-->INJECTED
+9        android:targetSdkVersion="36" />
+9-->INJECTED
+10
+11    <uses-feature
+11-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:5:5-7:36
+12        android:name="android.hardware.telephony"
+12-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:6:9-50
+13        android:required="false" />
+13-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:7:9-33
+14    <uses-feature
+14-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:8:5-10:36
+15        android:name="android.hardware.camera"
+15-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:9:9-47
+16        android:required="false" />
+16-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:10:9-33
+17
+18    <uses-permission android:name="android.permission.INTERNET" />
+18-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:12:5-67
+18-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:12:22-64
+19    <uses-permission android:name="android.permission.SEND_SMS" />
+19-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:13:5-67
+19-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:13:22-64
+20    <uses-permission android:name="android.permission.CAMERA" />
+20-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:14:5-15:45
+20-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:14:22-62
+21    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+21-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:16:5-17:45
+21-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:16:22-76
+22
+23    <permission
+23-->[androidx.core:core:1.18.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\fde686ab3db2e2f2bc1b81a9c58829e8\workspace\transformed\core-1.18.0\AndroidManifest.xml:22:5-24:47
+24        android:name="com.example.sabzazaar.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+24-->[androidx.core:core:1.18.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\fde686ab3db2e2f2bc1b81a9c58829e8\workspace\transformed\core-1.18.0\AndroidManifest.xml:23:9-81
+25        android:protectionLevel="signature" />
+25-->[androidx.core:core:1.18.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\fde686ab3db2e2f2bc1b81a9c58829e8\workspace\transformed\core-1.18.0\AndroidManifest.xml:24:9-44
+26
+27    <uses-permission android:name="com.example.sabzazaar.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+27-->[androidx.core:core:1.18.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\fde686ab3db2e2f2bc1b81a9c58829e8\workspace\transformed\core-1.18.0\AndroidManifest.xml:26:5-97
+27-->[androidx.core:core:1.18.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\fde686ab3db2e2f2bc1b81a9c58829e8\workspace\transformed\core-1.18.0\AndroidManifest.xml:26:22-94
+28
+29    <application
+29-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:19:5-137:19
+30        android:allowBackup="true"
+30-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:20:9-35
+31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+31-->[androidx.core:core:1.18.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\fde686ab3db2e2f2bc1b81a9c58829e8\workspace\transformed\core-1.18.0\AndroidManifest.xml:28:18-86
+32        android:dataExtractionRules="@xml/data_extraction_rules"
+32-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:21:9-65
+33        android:debuggable="true"
+34        android:extractNativeLibs="false"
+34-->INJECTED
+35        android:fullBackupContent="@xml/backup_rules"
+35-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:22:9-54
+36        android:icon="@mipmap/ic_launcher"
+36-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:23:9-43
+37        android:label="@string/app_name"
+37-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:24:9-41
+38        android:roundIcon="@mipmap/ic_launcher_round"
+38-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:25:9-54
+39        android:supportsRtl="true"
+39-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:26:9-35
+40        android:testOnly="true"
+41        android:theme="@style/Theme.Sabzazaar"
+41-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:27:9-47
+42        android:usesCleartextTraffic="true" >
+42-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:28:9-44
+43
+44        <!-- Auth Activities -->
+45        <activity
+45-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:31:9-38:20
+46            android:name="com.example.sabzazaar.activities.auth.SplashActivity"
+46-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:32:13-59
+47            android:exported="true" >
+47-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:33:13-36
+48            <intent-filter>
+48-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:34:13-37:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:35:17-69
+49-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:35:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:36:17-77
+51-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:36:27-74
+52            </intent-filter>
+53        </activity>
+54        <activity
+54-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:39:9-41:40
+55            android:name="com.example.sabzazaar.activities.auth.OtpPageActivity"
+55-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:40:13-60
+56            android:exported="false" />
+56-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:41:13-37
+57        <activity
+57-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:42:9-44:40
+58            android:name="com.example.sabzazaar.activities.auth.OnBoardingStartActivity"
+58-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:43:13-68
+59            android:exported="false" />
+59-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:44:13-37
+60        <activity
+60-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:45:9-47:40
+61            android:name="com.example.sabzazaar.activities.auth.MobileNumberGetActivity"
+61-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:46:13-68
+62            android:exported="false" />
+62-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:47:13-37
+63
+64        <!-- Main/Feature Activities -->
+65        <activity
+65-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:50:9-52:40
+66            android:name="com.example.sabzazaar.activities.main.MainActivity"
+66-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:51:13-57
+67            android:exported="false" />
+67-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:52:13-37
+68        <activity
+68-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:53:9-55:40
+69            android:name="com.example.sabzazaar.activities.main.ChatbotActivity"
+69-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:54:13-60
+70            android:exported="false" />
+70-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:55:13-37
+71        <activity
+71-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:56:9-58:40
+72            android:name="com.example.sabzazaar.activities.main.SoilHealthActivity"
+72-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:57:13-63
+73            android:exported="false" />
+73-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:58:13-37
+74        <activity
+74-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:59:9-61:40
+75            android:name="com.example.sabzazaar.activities.main.WeatherDetailsActivity"
+75-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:60:13-67
+76            android:exported="false" />
+76-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:61:13-37
+77        <activity
+77-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:62:9-64:40
+78            android:name="com.example.sabzazaar.activities.main.AskQuestionActivity"
+78-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:63:13-64
+79            android:exported="false" />
+79-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:64:13-37
+80        <activity
+80-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:65:9-67:40
+81            android:name="com.example.sabzazaar.activities.main.QuestionDetailActivity"
+81-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:66:13-67
+82            android:exported="false" />
+82-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:67:13-37
+83        <activity
+83-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:68:9-70:40
+84            android:name="com.example.sabzazaar.activities.main.HelpActivity"
+84-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:69:13-57
+85            android:exported="false" />
+85-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:70:13-37
+86        <activity
+86-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:71:9-73:40
+87            android:name="com.example.sabzazaar.activities.main.AboutActivity"
+87-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:72:13-58
+88            android:exported="false" />
+88-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:73:13-37
+89
+90        <!-- Profile Activities -->
+91        <activity
+91-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:76:9-78:40
+92            android:name="com.example.sabzazaar.activities.profile.ProfileActivity"
+92-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:77:13-63
+93            android:exported="false" />
+93-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:78:13-37
+94        <activity
+94-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:79:9-81:40
+95            android:name="com.example.sabzazaar.activities.profile.EditProfileActivity"
+95-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:80:13-67
+96            android:exported="false" />
+96-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:81:13-37
+97        <activity
+97-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:82:9-84:40
+98            android:name="com.example.sabzazaar.activities.profile.SettingsActivity"
+98-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:83:13-64
+99            android:exported="false" />
+99-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:84:13-37
+100        <activity
+100-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:85:9-87:40
+101            android:name="com.example.sabzazaar.activities.profile.MoreLanguageActivity"
+101-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:86:13-68
+102            android:exported="false" />
+102-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:87:13-37
+103        <activity
+103-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:88:9-90:40
+104            android:name="com.example.sabzazaar.activities.profile.MyQuestionsActivity"
+104-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:89:13-67
+105            android:exported="false" />
+105-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:90:13-37
+106
+107        <!-- Scan Activities -->
+108        <activity
+108-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:93:9-95:40
+109            android:name="com.example.sabzazaar.activities.scan.ScanCameraActivity"
+109-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:94:13-63
+110            android:exported="false" />
+110-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:95:13-37
+111        <activity
+111-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:96:9-98:40
+112            android:name="com.example.sabzazaar.activities.scan.ScanPreviewActivity"
+112-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:97:13-64
+113            android:exported="false" />
+113-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:98:13-37
+114        <activity
+114-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:99:9-101:40
+115            android:name="com.example.sabzazaar.activities.scan.ScanAnalysisActivity"
+115-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:100:13-65
+116            android:exported="false" />
+116-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:101:13-37
+117        <activity
+117-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:102:9-104:40
+118            android:name="com.example.sabzazaar.activities.scan.ScanTreatmentActivity"
+118-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:103:13-66
+119            android:exported="false" />
+119-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:104:13-37
+120        <activity
+120-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:105:9-107:40
+121            android:name="com.example.sabzazaar.activities.scan.ScanDetailsActivity"
+121-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:106:13-64
+122            android:exported="false" />
+122-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:107:13-37
+123        <activity
+123-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:108:9-110:40
+124            android:name="com.example.sabzazaar.activities.scan.ScanResultsActivity"
+124-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:109:13-64
+125            android:exported="false" />
+125-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:110:13-37
+126
+127        <!-- Expert Activities -->
+128        <activity
+128-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:113:9-115:40
+129            android:name="com.example.sabzazaar.activities.expert.ExpertLoginActivity"
+129-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:114:13-66
+130            android:exported="false" />
+130-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:115:13-37
+131        <activity
+131-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:116:9-118:40
+132            android:name="com.example.sabzazaar.activities.expert.ExpertDashboardActivity"
+132-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:117:13-70
+133            android:exported="false" />
+133-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:118:13-37
+134        <activity
+134-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:119:9-121:40
+135            android:name="com.example.sabzazaar.activities.expert.ExpertAnswerActivity"
+135-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:120:13-67
+136            android:exported="false" />
+136-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:121:13-37
+137        <activity
+137-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:122:9-124:40
+138            android:name="com.example.sabzazaar.activities.expert.ExpertBroadcastActivity"
+138-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:123:13-70
+139            android:exported="false" />
+139-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:124:13-37
+140
+141        <!-- Utility Activities -->
+142        <activity
+142-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:127:9-129:40
+143            android:name="com.example.sabzazaar.utils.Permissions"
+143-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:128:13-46
+144            android:exported="false" />
+144-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:129:13-37
+145        <activity
+145-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:130:9-132:40
+146            android:name="com.example.sabzazaar.utils.LanguagePreference"
+146-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:131:13-53
+147            android:exported="false" />
+147-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:132:13-37
+148        <activity
+148-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:133:9-135:40
+149            android:name="com.example.sabzazaar.utils.VoicePreference"
+149-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:134:13-50
+150            android:exported="false" />
+150-->C:\Users\abdul\AndroidStudioProjects\Subzazaar_project\Sabzazaar\app\src\main\AndroidManifest.xml:135:13-37
+151
+152        <provider
+152-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+153            android:name="androidx.startup.InitializationProvider"
+153-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+154            android:authorities="com.example.sabzazaar.androidx-startup"
+154-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+155            android:exported="false" >
+155-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+156            <meta-data
+156-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+157                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+157-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+158                android:value="androidx.startup" />
+158-->[androidx.emoji2:emoji2:1.3.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\28f5682c82276b330b3751175172f83d\workspace\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+159            <meta-data
+159-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\abdul\.gradle\caches\9.3.1\transforms\7852513cb9b62a1e750b09589c3644e4\workspace\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+160                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+160-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\abdul\.gradle\caches\9.3.1\transforms\7852513cb9b62a1e750b09589c3644e4\workspace\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+161                android:value="androidx.startup" />
+161-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\abdul\.gradle\caches\9.3.1\transforms\7852513cb9b62a1e750b09589c3644e4\workspace\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+162            <meta-data
+162-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+163                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+163-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+164                android:value="androidx.startup" />
+164-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+165        </provider>
+166
+167        <receiver
+167-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+168            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+168-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+169            android:directBootAware="false"
+169-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+170            android:enabled="true"
+170-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+171            android:exported="true"
+171-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+172            android:permission="android.permission.DUMP" >
+172-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+173            <intent-filter>
+173-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+174                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+174-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+174-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+175            </intent-filter>
+176            <intent-filter>
+176-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+177                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+177-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+177-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+178            </intent-filter>
+179            <intent-filter>
+179-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+180                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+180-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+180-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+181            </intent-filter>
+182            <intent-filter>
+182-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+183                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+183-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+183-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\abdul\.gradle\caches\9.3.1\transforms\5573053fb770e3429bbb7469df034854\workspace\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+184            </intent-filter>
+185        </receiver>
+186    </application>
+187
+188</manifest>

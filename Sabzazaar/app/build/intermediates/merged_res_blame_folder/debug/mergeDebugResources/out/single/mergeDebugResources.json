@@ -1,0 +1,526 @@
+[
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_headphones.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_headphones.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_btn_ripple.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\btn_ripple.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_hot.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_hot.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_sunny.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_sunny.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_comments.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_comments.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_chatbot.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_chatbot.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_otp_error_bg.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\otp_error_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_help.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_otp_box.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_otp_box.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_translate.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_translate.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_icon_voice.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\icon_voice.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_bars.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_bars.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_rain_heavy.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_rain_heavy.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_trash_can.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_trash_can.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_language_preference.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_language_preference.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_lang_box.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_lang_box.xml"
+    },
+    {
+        "merged": "com.example.sabzazaar.app-debug-35:/layout_activity_more_language.xml.flat",
+        "source": "com.example.sabzazaar.app-main-37:/layout/activity_more_language.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_later_btn.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_later_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_secondary_btn.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_secondary_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_location.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_phone.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_phone.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_help.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_my_questions.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_my_questions.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_confirm_number.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_confirm_number.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_eye.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_eye.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_settings.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_circle.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_edit_profile.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_mobile.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_mobile.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_scan_treatment.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_scan_treatment.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_circle_voice.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\circle_voice.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_cloud_sun_rain.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_cloud_sun_rain.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_circle_light.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_circle_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_soil_health.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_soil_health.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_primary_btn.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_primary_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_permission_card.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_permission_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_fog.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_fog.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_rain.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_rain.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_flag_usa.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_flag_usa.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_paper_plane.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_paper_plane.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_fragment_scan.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\fragment_scan.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_gear.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_gear.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_icon_state.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\icon_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_globe.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_globe.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_about.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_robot.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_robot.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_agrinova_logo.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_agrinova_logo.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_text_state.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\text_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_guest.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_guest.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_profile.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_expert_answer.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_expert_answer.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_otp_page.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_otp_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_cloud_thunder.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_cloud_thunder.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_expert_login.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_expert_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_cancel.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_cancel.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_scan_details.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_scan_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_cloud_sun.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_cloud_sun.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_check.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_user.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_gallery.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_more_language.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_more_language.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_scan_analysis.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_scan_analysis.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_spray.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_spray.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_user_shield.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_user_shield.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_microphone.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_microphone.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_allow_btn.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_allow_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_info.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_scan_camera.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_scan_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_warning.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_warning.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_camera.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_voice_icon.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\voice_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_smog.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_smog.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_expert_broadcast.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_expert_broadcast.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_on_boarding_start.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_on_boarding_start.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\color_text_state.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\color\\text_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_cold.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_cold.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_refresh.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_refresh.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_download.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_download.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_temperature_low.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_temperature_low.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_card_state.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\card_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_opt_error_bg.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\opt_error_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_fragment_more.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\fragment_more.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_ask_question.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_ask_question.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_shield.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_shield.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_expert_dashboard.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_expert_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_branch.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_branch.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_voice_card_state.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\voice_card_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_weather_details.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_weather_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\anim_text_anim.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\anim\\text_anim.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_flag_pakistan.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_flag_pakistan.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_volume_up.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_volume_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_arrow_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_item_scan.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\item_scan.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_fragment_community.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\fragment_community.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_circle_grey.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_circle_grey.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_temperature_high.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_temperature_high.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_question_detail.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_question_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_demo_note.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_demo_note.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_mobile_number_get.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_mobile_number_get.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_card_voice.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\card_voice.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_scan_results.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_scan_results.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_scan_preview.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_scan_preview.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_item_community_question.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\item_community_question.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\anim_logo_anim.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\anim\\logo_anim.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_bg_otp_box_error.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\bg_otp_box_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_leaf.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_leaf.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_permisssions.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_permisssions.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\layout_activity_voice_preference.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\layout\\activity_voice_preference.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_wind.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_wind.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-debug-35:\\drawable_ic_speaker.xml.flat",
+        "source": "C:\\Users\\abdul\\.gradle\\daemon\\9.3.1\\com.example.sabzazaar.app-main-37:\\drawable\\ic_speaker.xml"
+    }
+]
