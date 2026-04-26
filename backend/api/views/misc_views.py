@@ -38,14 +38,27 @@ def get_upload_url(request):
         path = f"posts/{filename}"
 
     try:
-        response = supabase_admin.storage \
-            .from_(bucket) \
-            .create_signed_upload_url(path)
-
+        # The python supabase client has a known bug with create_signed_upload_url 
+        # throwing "'dict' object has no attribute 'signed_url'". We bypass it via direct REST call.
+        import requests as http_requests
+        import os
+        
+        project_url = os.getenv('SUPABASE_URL')
+        service_key = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
+        url = f"{project_url}/storage/v1/object/upload/sign/{bucket}/{path}"
+        
+        resp = http_requests.post(url, headers={
+            'Authorization': f'Bearer {service_key}',
+            'apikey': service_key,
+            'Content-Type': 'application/json'
+        })
+        resp.raise_for_status()
+        
+        data = resp.json()
         return JsonResponse({
-            'signed_url': response.signed_url,
-            'path': response.path,
-            'token': response.token
+            'signed_url': project_url + data.get('url'),
+            'path': path,
+            'token': data.get('token', '')
         })
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
