@@ -1,3 +1,13 @@
+venv/
+.venv/
+.env
+__pycache__/
+*.pyc
+.DS_Store
+db.sqlite3
+media/
+Sabzazaar/.gradle/
+test_api.py 
 # Android
 .gradle/
 build/
