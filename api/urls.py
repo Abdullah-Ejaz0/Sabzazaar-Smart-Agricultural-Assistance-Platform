@@ -33,6 +33,7 @@ urlpatterns = [
     # Misc
     path('chatbot/faqs/',                misc_views.chatbot_faqs),
     path('broadcasts/',                  misc_views.broadcasts),
+    path('storage/upload-url/',          misc_views.get_upload_url),
 
     # Health check
     path('health/',                      misc_views.health_check),
