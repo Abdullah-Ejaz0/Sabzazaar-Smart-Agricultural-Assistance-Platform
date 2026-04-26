@@ -1,7 +1,7 @@
 import functools
 from django.http import JsonResponse
-from api.supabase_client import supabase
-
+from api.supabase_client import supabase, supabase_admin
+ 
 
 def require_auth(view_func):
     """
@@ -38,14 +38,14 @@ def require_expert(view_func):
     @functools.wraps(view_func)
     def wrapper(request, *args, **kwargs):
         try:
-            result = supabase \
+            result = supabase_admin \
                 .from_('profiles') \
                 .select('role, is_verified_expert') \
                 .eq('id', request.user_id) \
                 .single() \
                 .execute()
         except Exception:
-            return JsonResponse({'error': 'Could not verify expert status'}, status=500)
+            return JsonResponse({'error': 'Could not verify expert status'}, status=403)
 
         profile = result.data
         if not profile:

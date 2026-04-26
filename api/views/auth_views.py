@@ -42,14 +42,40 @@ def update_settings(request):
     return JsonResponse({'status': 'settings updated'})
 
 
+@csrf_exempt
 @require_auth
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "PATCH"])
 def get_profile(request):
-    """GET /api/auth/profile/ — returns the authenticated user's full profile."""
-    result = supabase \
+    """
+    GET  /api/auth/profile/ — returns the authenticated user's full profile.
+    PATCH /api/auth/profile/ — updates allowed profile fields (full_name, avatar_url, region, username).
+    """
+    if request.method == 'GET':
+        result = supabase \
+            .from_('profiles') \
+            .select('*') \
+            .eq('id', request.user_id) \
+            .single() \
+            .execute()
+        return JsonResponse(result.data)
+
+    # PATCH
+    try:
+        body = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    # Whitelist allowed fields — never let a user change their own role
+    allowed = ['full_name', 'avatar_url', 'region', 'username']
+    update_data = {k: v for k, v in body.items() if k in allowed}
+
+    if not update_data:
+        return JsonResponse({'error': 'No valid fields to update'}, status=400)
+
+    supabase \
         .from_('profiles') \
-        .select('*') \
+        .update(update_data) \
         .eq('id', request.user_id) \
-        .single() \
         .execute()
-    return JsonResponse(result.data)
+
+    return JsonResponse({'status': 'profile updated'})
