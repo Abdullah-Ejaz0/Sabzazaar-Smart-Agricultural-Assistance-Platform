@@ -90,6 +90,15 @@
             android:name=".LanguagePreference"
             android:exported="false" />
         <activity
+            android:name=".Splash"
+            android:exported="false" />
+        <activity
+            android:name=".ExpertAnswerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExpertBroadcastActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExpertLogin"
             android:exported="false" />
         <activity
@@ -102,10 +111,10 @@
             android:name=".onBoarding_start"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ExpertDashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

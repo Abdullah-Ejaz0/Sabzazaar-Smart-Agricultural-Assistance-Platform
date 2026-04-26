@@ -27,12 +27,18 @@ public class MoreFragment extends Fragment {
         LinearLayout llLanguage = view.findViewById(R.id.llLanguage);
         LinearLayout llHelp = view.findViewById(R.id.llHelp);
         LinearLayout llAbout = view.findViewById(R.id.llAbout);
+        LinearLayout llSignOut = view.findViewById(R.id.llSignOut);
 
         llProfile.setOnClickListener(v -> startActivity(new Intent(getActivity(), ProfileActivity.class)));
         llSettings.setOnClickListener(v -> startActivity(new Intent(getActivity(), SettingsActivity.class)));
         llLanguage.setOnClickListener(v -> startActivity(new Intent(getActivity(), MoreLanguageActivity.class)));
         llHelp.setOnClickListener(v -> startActivity(new Intent(getActivity(), HelpActivity.class)));
         llAbout.setOnClickListener(v -> startActivity(new Intent(getActivity(), AboutActivity.class)));
+        llSignOut.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), com.example.sabzazaar.onBoarding_start.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        });
 
         return view;
     }

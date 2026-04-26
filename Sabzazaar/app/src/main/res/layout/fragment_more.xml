@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_light"
-    android:padding="16dp"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="16dp"
     android:fitsSystemWindows="true">
 
     <!-- Header -->
@@ -178,7 +179,7 @@
         android:orientation="horizontal"
         android:padding="18dp"
         app:layout_constraintTop_toBottomOf="@id/llHelp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/llSignOut">
 
         <ImageView
             android:layout_width="36dp"
@@ -193,6 +194,36 @@
             android:layout_marginStart="16dp"
             android:text="@string/about_agrinova"
             android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_lang_box"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="18dp"
+        app:layout_constraintTop_toBottomOf="@id/llAbout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="Sign Out"
+            android:src="@drawable/ic_cancel"
+            app:tint="@color/demo_note_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Sign Out"
+            android:textColor="@color/demo_note_text"
             android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>

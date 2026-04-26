@@ -1,24 +1,38 @@
 package com.example.sabzazaar;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class ExpertLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_expert_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        EditText etUsername = findViewById(R.id.etUsername);
+        EditText etPassword = findViewById(R.id.etPassword);
+        Button btnLogin = findViewById(R.id.btnLogin);
+
+        findViewById(R.id.btnBack).setOnClickListener((v) -> {
+                startActivity(new Intent(this, onBoarding_start.class));
+                finish();
+        });
+
+        btnLogin.setOnClickListener(v -> {
+            String user = etUsername.getText().toString();
+            String pass = etPassword.getText().toString();
+
+            if (!user.isEmpty() && !pass.isEmpty()) {
+                Toast.makeText(this, "Logged in as expert", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ExpertDashboardActivity.class));
+            } else {
+                Toast.makeText(this, "Please enter credentials", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
