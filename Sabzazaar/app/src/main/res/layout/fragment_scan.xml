@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/bg_light"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
 
     <!-- Header -->
     <RelativeLayout
@@ -46,12 +47,16 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/btnTakePhoto"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@drawable/bg_permission_card"
         android:backgroundTint="@color/camera_placeholder_bg"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
 
         <ImageView
             android:layout_width="80dp"
@@ -78,13 +83,17 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/btnGallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_lang_box"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
 
         <ImageView
             android:layout_width="40dp"

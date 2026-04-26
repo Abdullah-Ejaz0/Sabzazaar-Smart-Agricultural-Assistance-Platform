@@ -13,7 +13,8 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CAMERA"
         tools:ignore="CoarseFineLocation" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:ignore="CoarseFineLocation" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,60 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sabzazaar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MoreLanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanPreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanCameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanAnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanTreatmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatbotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SoilHealthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeatherDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AskQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyQuestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
         <activity
             android:name=".VoicePreference"
             android:exported="false" />
@@ -47,10 +102,10 @@
             android:name=".onBoarding_start"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Splash"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

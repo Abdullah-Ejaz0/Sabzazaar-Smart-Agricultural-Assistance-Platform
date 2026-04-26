@@ -13,7 +13,7 @@
         android:id="@+id/ivQuestionIcon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_help"
         app:tint="@color/green" />
 
     <TextView
@@ -24,5 +24,5 @@
         android:text="Question text goes here?"
         android:textColor="@color/text_primary"
         android:textSize="16sp"
-        android:textStyle="medium" />
+        android:textStyle="normal" />
 </LinearLayout>

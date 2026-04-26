@@ -10,10 +10,10 @@
         android:title="Scan" />
     <item
         android:id="@+id/navigation_community"
-        android:icon="@drawable/ic_paper_plane"
+        android:icon="@drawable/ic_comments"
         android:title="Community" />
     <item
         android:id="@+id/navigation_more"
-        android:icon="@drawable/ic_user_shield"
+        android:icon="@drawable/ic_bars"
         android:title="More" />
 </menu>

@@ -71,4 +71,48 @@
     <string name="help_tutorials">Help &amp; Tutorials</string>
     <string name="content_desc_about">About</string>
     <string name="about_agrinova">About AgriNova</string>
+
+    <string name="title_result">Result</string>
+    <string name="high_risk">High Risk</string>
+    <string name="leaf_blight">Leaf Blight</string>
+    <string name="confidence_format">Confidence: %1$d%%</string>
+    <string name="see_treatment">See Treatment</string>
+    <string name="why">Why?</string>
+    <string name="ask_expert">Ask Expert</string>
+
+    <string name="title_details">Details</string>
+    <string name="causes">Causes</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="prevention">Prevention</string>
+    <string name="cause_fungus">Fungus due to high humidity</string>
+    <string name="symptom_spots">Brown spots on leaves, yellow edges</string>
+    <string name="prevention_airflow">Ensure good airflow, avoid overhead watering</string>
+
+    <string name="title_treatment">Treatment</string>
+    <string name="recommended_treatment">Recommended Treatment</string>
+    <string name="copper_oxychloride">Copper Oxychloride</string>
+    <string name="dosage">Dosage: 2g per liter water</string>
+    <string name="frequency">Frequency: Every 5 days</string>
+    <string name="treatment_disclaimer">⚠️ Always consult local agriculture officer before use.</string>
+    <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="content_desc_back">Back</string>
+    <string name="content_desc_preview">Scan Preview</string>
+    <string name="content_desc_warning">Warning</string>
+    <string name="analyzing_crop">Analyzing your crop...</string>
+    <string name="checking_leaf_health">Checking leaf health...</string>
+    <string name="checking_leaf_color">Checking leaf color...</string>
+    <string name="comparing_diseases">Comparing with diseases...</string>
+    <string name="almost_done">Almost done...</string>
+    <string name="retake">Retake</string>
+    <string name="confirm">Confirm</string>
+    <string name="position_leaf_hint">Position leaf in box</string>
+    <string name="phosphorous">P</string>
+    <string name="potassium">K</string>
+    <string name="weather">Weather</string>
+    <string name="pesticide">Pesticide</string>
+    <string name="how_to_scan">How to scan?</string>
+    <string name="disease_info">Disease info</string>
+    <string name="common_questions">Common Questions</string>
+    <string name="type_question">Type your question...</string>
 </resources>
