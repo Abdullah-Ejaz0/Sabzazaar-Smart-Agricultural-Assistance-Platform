@@ -30,4 +30,45 @@
     <string name="voice_assistance">Voice Assistance</string>
     <string name="subzazaar">Subzazaar</string>
     <string name="permissions">Permissions</string>
+
+    <!-- UI Components -->
+    <string name="user_name_sara">Sara</string>
+    <string name="content_desc_listen">Listen</string>
+    <string name="content_desc_weather_icon">Weather Icon</string>
+    <string name="todays_weather">Today\'s Weather</string>
+    <string name="weather_advice_rain">Rain expected tomorrow – delay spraying</string>
+    <string name="content_desc_scan">Scan</string>
+    <string name="scan_crop">Scan Crop</string>
+    <string name="content_desc_soil">Soil</string>
+    <string name="soil_health">Soil Health</string>
+    <string name="content_desc_chat">Chat</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="content_desc_history">History</string>
+    <string name="recent_scans">Recent Scans</string>
+    <string name="hint_switch_tabs">ℹ Tap bottom icons to switch tabs.</string>
+
+    <string name="title_scan">Scan</string>
+    <string name="content_desc_camera">Camera</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="of_your_crop">of your crop</string>
+    <string name="content_desc_gallery">Gallery</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="hint_scan_capture">ℹ Point camera at leaf and tap capture.</string>
+
+    <string name="title_community">Community</string>
+    <string name="farmer_community">Farmer Community</string>
+    <string name="content_desc_add">Add</string>
+    <string name="ask">Ask</string>
+    <string name="hint_community_details">ℹ Tap a question to see details.</string>
+
+    <string name="title_more">More</string>
+    <string name="content_desc_profile">Profile</string>
+    <string name="my_profile">My Profile</string>
+    <string name="content_desc_settings">Settings</string>
+    <string name="settings">Settings</string>
+    <string name="content_desc_language">Language</string>
+    <string name="content_desc_help">Help</string>
+    <string name="help_tutorials">Help &amp; Tutorials</string>
+    <string name="content_desc_about">About</string>
+    <string name="about_agrinova">About AgriNova</string>
 </resources>
