@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.sabzazaar.AskQuestionActivity;
-import com.example.sabzazaar.MyQuestionsActivity;
+import com.example.sabzazaar.activities.main.AskQuestionActivity;
+import com.example.sabzazaar.activities.profile.MyQuestionsActivity;
 import com.example.sabzazaar.R;
 
 public class CommunityFragment extends Fragment {

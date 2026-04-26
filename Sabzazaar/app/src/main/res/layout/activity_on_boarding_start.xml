@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e0e3e9"
-    tools:context=".onBoarding_start">
+    tools:context=".activities.auth.OnBoardingStartActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contentRoot"

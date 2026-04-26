@@ -31,8 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:background="@drawable/bg_otp_box"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:text="Status"
         android:textColor="@color/badge_text"
         android:textSize="10sp" />

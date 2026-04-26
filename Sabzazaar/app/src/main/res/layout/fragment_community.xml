@@ -76,7 +76,8 @@
                 android:background="@drawable/bg_lang_box"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -118,8 +119,10 @@
                     android:focusable="true"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="8dp">
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
 
                     <ImageView
                         android:layout_width="20dp"
@@ -430,8 +433,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:background="@drawable/bg_primary_btn"
-                            android:paddingHorizontal="12dp"
-                            android:paddingVertical="2dp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
                             android:text="Verified"
                             android:textColor="@color/white"
                             android:textSize="12sp" />

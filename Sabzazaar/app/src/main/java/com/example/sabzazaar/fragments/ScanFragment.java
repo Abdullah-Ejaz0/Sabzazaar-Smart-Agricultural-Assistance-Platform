@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.sabzazaar.R;
-import com.example.sabzazaar.ScanResultsActivity;
+import com.example.sabzazaar.activities.scan.ScanCameraActivity;
+import com.example.sabzazaar.activities.scan.ScanResultsActivity;
 
 public class ScanFragment extends Fragment {
     @Nullable
@@ -21,7 +22,7 @@ public class ScanFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Start the simulated scan flow
-                startActivity(new Intent(getActivity(), com.example.sabzazaar.ScanCameraActivity.class));
+                startActivity(new Intent(getActivity(), ScanCameraActivity.class));
             }
         });
 
@@ -29,7 +30,7 @@ public class ScanFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // For demo, just start the scan flow as well or open gallery picker
-                startActivity(new Intent(getActivity(), com.example.sabzazaar.ScanCameraActivity.class));
+                startActivity(new Intent(getActivity(), ScanCameraActivity.class));
             }
         });
 

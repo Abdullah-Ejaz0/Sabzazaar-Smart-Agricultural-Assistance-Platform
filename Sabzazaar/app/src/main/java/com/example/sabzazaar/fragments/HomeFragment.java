@@ -1,5 +1,6 @@
 package com.example.sabzazaar.fragments;
 
+import com.example.sabzazaar.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,11 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.sabzazaar.ChatbotActivity;
-import com.example.sabzazaar.MainActivity;
-import com.example.sabzazaar.R;
-import com.example.sabzazaar.SoilHealthActivity;
-import com.example.sabzazaar.WeatherDetailsActivity;
+import com.example.sabzazaar.activities.main.ChatbotActivity;
+import com.example.sabzazaar.activities.main.MainActivity;
+import com.example.sabzazaar.activities.main.SoilHealthActivity;
+import com.example.sabzazaar.activities.main.WeatherDetailsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {

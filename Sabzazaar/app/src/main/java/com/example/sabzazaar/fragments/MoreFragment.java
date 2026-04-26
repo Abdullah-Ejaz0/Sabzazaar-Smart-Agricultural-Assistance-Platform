@@ -9,12 +9,13 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.sabzazaar.AboutActivity;
-import com.example.sabzazaar.HelpActivity;
-import com.example.sabzazaar.MoreLanguageActivity;
-import com.example.sabzazaar.ProfileActivity;
+import com.example.sabzazaar.activities.auth.OnBoardingStartActivity;
+import com.example.sabzazaar.activities.main.AboutActivity;
+import com.example.sabzazaar.activities.main.HelpActivity;
+import com.example.sabzazaar.activities.profile.MoreLanguageActivity;
+import com.example.sabzazaar.activities.profile.ProfileActivity;
+import com.example.sabzazaar.activities.profile.SettingsActivity;
 import com.example.sabzazaar.R;
-import com.example.sabzazaar.SettingsActivity;
 
 public class MoreFragment extends Fragment {
     @Nullable
@@ -35,7 +36,7 @@ public class MoreFragment extends Fragment {
         llHelp.setOnClickListener(v -> startActivity(new Intent(getActivity(), HelpActivity.class)));
         llAbout.setOnClickListener(v -> startActivity(new Intent(getActivity(), AboutActivity.class)));
         llSignOut.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), com.example.sabzazaar.onBoarding_start.class);
+            Intent intent = new Intent(getActivity(), OnBoardingStartActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
