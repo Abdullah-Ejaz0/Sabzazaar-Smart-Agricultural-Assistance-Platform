@@ -1,0 +1,31 @@
+venv/
+.venv/
+.env
+__pycache__/
+*.pyc
+.DS_Store
+db.sqlite3
+media/
+Sabzazaar/.gradle/
+test_api.py 
+# Android
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+*.hprof
+
+# Python / Django
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+venv/
+env/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
