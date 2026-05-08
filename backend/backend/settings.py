@@ -59,7 +59,10 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
+    "COMPONENT_SPLIT_REQUEST": True,
     'TITLE': 'Sabzazaar API',
     'DESCRIPTION': 'Backend API for Sabzazaar (Supabase-backed).',
     'VERSION': '1.0.0',
+    # Work around Windows stderr issues that raise OSError in drf-spectacular.
+    'DISABLE_ERRORS_AND_WARNINGS': True,
 }
