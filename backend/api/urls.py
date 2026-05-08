@@ -2,7 +2,7 @@ from django.urls import path
 from api.views import (
     scan_views, community_views, soil_views,
     expert_views, auth_views, misc_views,
-    disease_views
+    disease_views, chatbot_views
 )
 
 urlpatterns = [
@@ -39,6 +39,8 @@ urlpatterns = [
 
     # Misc
     path('chatbot/faqs/',                misc_views.chatbot_faqs),
+    path('chatbot/ask/',                 chatbot_views.ask_chatbot),
+    path('chatbot/history/',             chatbot_views.chatbot_history),
     path('broadcasts/',                  misc_views.broadcasts),
     path('storage/upload-url/',          misc_views.get_upload_url),
     path('weather/',                     misc_views.weather),
