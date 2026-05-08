@@ -5,7 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 from api.supabase_client import supabase
 from api.middleware.auth import require_auth
 
-
 @csrf_exempt
 @require_http_methods(["POST"])
 def complete_onboarding(request):

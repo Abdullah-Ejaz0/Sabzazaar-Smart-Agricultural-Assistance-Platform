@@ -55,10 +55,8 @@ public class VoicePreference extends AppCompatActivity {
         voiceYes = findViewById(R.id.voiceYes);
         voiceNo = findViewById(R.id.voiceNo);
         voiceNext = findViewById(R.id.voiceNext);
-
         yesIcon = findViewById(R.id.yesIcon);
         noIcon = findViewById(R.id.noIcon);
-
         setButtonDisabled();
     }
 
@@ -70,16 +68,12 @@ public class VoicePreference extends AppCompatActivity {
 
     private void applyPreviousSelection() {
         if (getIntent().hasExtra("voice")) {
-            if (voiceEnabled) {
-                selectYes();
-            } else {
-                selectNo();
-            }
+            if (voiceEnabled) selectYes();
+            else selectNo();
         }
     }
 
     private void setupListeners() {
-
         backBtn.setOnClickListener(v -> {
             Intent i = new Intent(this, LanguagePreference.class);
             i.putExtra("phone", phone);
@@ -90,7 +84,6 @@ public class VoicePreference extends AppCompatActivity {
 
         voiceYes.setOnClickListener(v -> selectYes());
         voiceNo.setOnClickListener(v -> selectNo());
-
         voiceNext.setOnClickListener(v -> {
             if (!isSelected) return;
             completeSignup();
@@ -100,26 +93,20 @@ public class VoicePreference extends AppCompatActivity {
     private void selectYes() {
         isSelected = true;
         voiceEnabled = true;
-
         voiceYes.setSelected(true);
         voiceNo.setSelected(false);
-
         yesIcon.setSelected(true);
         noIcon.setSelected(false);
-
         setButtonEnabled();
     }
 
     private void selectNo() {
         isSelected = true;
         voiceEnabled = false;
-
         voiceYes.setSelected(false);
         voiceNo.setSelected(true);
-
         yesIcon.setSelected(false);
         noIcon.setSelected(true);
-
         setButtonEnabled();
     }
 
@@ -134,22 +121,18 @@ public class VoicePreference extends AppCompatActivity {
     }
 
     private void completeSignup() {
-
         ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
         SignupRequest request = new SignupRequest(phone, language, voiceEnabled);
 
-        Call<CompleteSignupResponse> call = apiService.completeSignup(request);
-
-        call.enqueue(new Callback<CompleteSignupResponse>() {
+        apiService.completeSignup(request).enqueue(new Callback<CompleteSignupResponse>() {
             @Override
             public void onResponse(Call<CompleteSignupResponse> call, Response<CompleteSignupResponse> response) {
-
                 if (response.isSuccessful() && response.body() != null) {
-
                     CompleteSignupResponse apiResponse = response.body();
 
                     if (apiResponse.status == 1 && apiResponse.user != null) {
-
+                        // Token is already saved from OtpPageActivity via Supabase
+                        // Just save user data here
                         saveUserPreferences(apiResponse.user);
 
                         if (!allPermissionsGranted()) {
@@ -157,13 +140,11 @@ public class VoicePreference extends AppCompatActivity {
                         } else {
                             startActivity(new Intent(VoicePreference.this, MainActivity.class));
                         }
-
                         finish();
 
                     } else {
                         Toast.makeText(VoicePreference.this, "Signup failed", Toast.LENGTH_SHORT).show();
                     }
-
                 } else {
                     Toast.makeText(VoicePreference.this, "Server error", Toast.LENGTH_SHORT).show();
                 }
@@ -176,16 +157,9 @@ public class VoicePreference extends AppCompatActivity {
         });
     }
 
-    private boolean allPermissionsGranted() {
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
-    }
-
     private void saveUserPreferences(UserData user) {
-
-        SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        // Single editor for all user data - token already saved in OtpPageActivity
+        SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
 
         editor.putString("phone_number", user.phone_number);
         editor.putString("preferred_language", user.preferred_language != null ? user.preferred_language : "");
@@ -195,5 +169,11 @@ public class VoicePreference extends AppCompatActivity {
         editor.putString("profile_photo", user.profile_photo != null ? user.profile_photo : "");
 
         editor.apply();
+    }
+
+    private boolean allPermissionsGranted() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
     }
 }
