@@ -2,10 +2,12 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 from api.supabase_client import supabase
 from api.middleware.auth import require_auth, require_expert
 
 
+@api_view(["GET"])
 @require_auth
 @require_expert
 @require_http_methods(["GET"])
@@ -17,6 +19,7 @@ def dashboard_stats(request):
     return JsonResponse(result.data[0] if result.data else {})
 
 
+@api_view(["GET"])
 @require_auth
 @require_expert
 @require_http_methods(["GET"])
@@ -30,6 +33,7 @@ def pending_questions(request):
 
 
 @csrf_exempt
+@api_view(["POST"])
 @require_auth
 @require_expert
 @require_http_methods(["POST"])

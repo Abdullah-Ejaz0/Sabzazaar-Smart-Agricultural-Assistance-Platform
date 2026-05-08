@@ -1,12 +1,18 @@
 import functools
+from django.conf import settings
 from django.http import JsonResponse
 from api.supabase_client import supabase, supabase_admin
- 
+
+
 
 def require_auth(view_func):
     """
     Decorator that validates the Supabase JWT from the Authorization header.
     Sets request.user_id and request.user_token on success.
+
+    DEBUG bypass: when settings.DEBUG is True and no Bearer token is present,
+    a fake user_id is injected so endpoints can be exercised via Swagger without
+    a real Supabase account.
     """
     @functools.wraps(view_func)
     def wrapper(request, *args, **kwargs):

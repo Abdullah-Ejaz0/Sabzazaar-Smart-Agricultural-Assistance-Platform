@@ -4,11 +4,13 @@ from datetime import datetime, timedelta, timezone
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 from api.supabase_client import supabase, supabase_admin
 from api.middleware.auth import require_auth
 
 
 @csrf_exempt
+@api_view(["POST"])
 @require_auth
 @require_http_methods(["POST"])
 def get_upload_url(request):
@@ -64,6 +66,7 @@ def get_upload_url(request):
         return JsonResponse({'error': str(e)}, status=500)
 
 
+@api_view(["GET"])
 @require_auth
 @require_http_methods(["GET"])
 def weather(request):
@@ -181,6 +184,7 @@ def weather(request):
     return JsonResponse(weather_row)
 
 
+@api_view(["GET"])
 @require_auth
 @require_http_methods(["GET"])
 def chatbot_faqs(request):
@@ -192,6 +196,7 @@ def chatbot_faqs(request):
     return JsonResponse(result.data, safe=False)
 
 
+@api_view(["GET"])
 @require_auth
 @require_http_methods(["GET"])
 def broadcasts(request):
@@ -203,6 +208,7 @@ def broadcasts(request):
     return JsonResponse(result.data, safe=False)
 
 
+@api_view(["GET"])
 @require_http_methods(["GET"])
 def health_check(request):
     """GET /api/health/ — no auth needed, verifies Django can reach Supabase."""
