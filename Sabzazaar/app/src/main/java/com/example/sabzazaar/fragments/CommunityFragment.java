@@ -84,6 +84,8 @@ public class CommunityFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<CommunityPost>> call, Throwable t) {
+                if (!isAdded() || getContext() == null) return;
+
                 Log.e("CommunityFragment", "Error: " + t.getMessage());
                 Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
             }
