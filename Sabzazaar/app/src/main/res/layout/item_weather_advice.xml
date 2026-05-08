@@ -13,19 +13,19 @@
     android:paddingBottom="16dp">
 
     <ImageView
-        android:id="@+id/ivQuestionIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_help"
+        android:id="@+id/ivIcon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_rain"
         app:tint="@color/green" />
 
     <TextView
-        android:id="@+id/tvQuestionText"
+        android:id="@+id/tvText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Question text goes here?"
+        android:text="Rain tomorrow"
         android:textColor="@color/text_primary"
-        android:textSize="16sp"
-        android:textStyle="normal" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </LinearLayout>

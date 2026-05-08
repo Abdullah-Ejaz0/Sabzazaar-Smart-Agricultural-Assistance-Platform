@@ -194,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@string/about_agrinova"
+            android:text="@string/about_sabzazaar"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold" />
