@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchWeather() {
-        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        ApiService apiService = RetrofitClient.getClient(getContext()).create(ApiService.class);
         // Default to Lahore, Pakistan coordinates
         apiService.getWeatherData(31.5204, 74.3587, true, "weathercode,temperature_2m_max,temperature_2m_min", "auto")
                 .enqueue(new Callback<WeatherResponse>() {

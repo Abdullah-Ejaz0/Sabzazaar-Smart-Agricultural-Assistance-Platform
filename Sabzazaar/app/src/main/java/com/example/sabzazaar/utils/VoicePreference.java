@@ -135,7 +135,7 @@ public class VoicePreference extends AppCompatActivity {
 
     private void completeSignup() {
 
-        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
         SignupRequest request = new SignupRequest(phone, language, voiceEnabled);
 
         Call<CompleteSignupResponse> call = apiService.completeSignup(request);

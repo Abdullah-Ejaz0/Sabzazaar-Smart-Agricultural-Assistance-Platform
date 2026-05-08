@@ -7,13 +7,34 @@ import com.example.sabzazaar.models.PhoneRequest;
 import com.example.sabzazaar.models.SignupRequest;
 import com.example.sabzazaar.models.WeatherResponse;
 
+import com.example.sabzazaar.models.CommunityPost;
+import com.example.sabzazaar.models.CommunityReply;
+import java.util.List;
+import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
+    @GET("api/community/")
+    Call<List<CommunityPost>> getCommunityFeed(
+            @Query("category") String category,
+            @Query("search") String search,
+            @Query("limit") int limit,
+            @Query("offset") int offset
+    );
+
+    @POST("api/community/post/")
+    Call<Map<String, String>> submitPost(@Body Map<String, Object> body);
+
+    @GET("api/community/{post_id}/")
+    Call<List<CommunityPost>> getPostDetail(@Path("post_id") String postId);
+
+    @POST("api/community/{post_id}/replies/")
+    Call<Map<String, String>> submitReply(@Path("post_id") String postId, @Body Map<String, Object> body);
     @GET("api/test/")
     Call<ApiResponse> getMessage();
 

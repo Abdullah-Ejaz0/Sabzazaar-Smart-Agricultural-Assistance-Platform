@@ -38,7 +38,7 @@ public class WeatherDetailsActivity extends AppCompatActivity {
     }
 
     private void fetchWeatherData() {
-        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
         apiService.getWeatherData(31.5204, 74.3587, true, "weathercode,temperature_2m_max,temperature_2m_min", "auto")
                 .enqueue(new Callback<WeatherResponse>() {
                     @Override

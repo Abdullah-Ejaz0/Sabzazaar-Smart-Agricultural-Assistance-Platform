@@ -197,7 +197,7 @@ public class OtpPageActivity extends AppCompatActivity {
 
     private void checkPhoneNumberWithBackend() {
         // Create API service and make request
-        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
         PhoneRequest phoneRequest = new PhoneRequest(phone);
         
         // Debug logging
