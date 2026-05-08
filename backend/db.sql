@@ -1050,3 +1050,25 @@ insert into public.chatbot_faqs (category, question, answer, sort_order) values
     ('Weather', 'Should I spray before rain?',
      'No. Avoid spraying 24 hours before expected rain as it reduces effectiveness.',
      5);
+
+
+--  12. CHATBOT HISTORY
+create table public.chatbot (
+    id          uuid primary key default uuid_generate_v4(),
+    user_id     uuid not null references public.profiles(id) on delete cascade,
+    question    text not null,
+    answer      text not null,
+    language    text not null,
+    created_at  timestamptz not null default now()
+);
+comment on table public.chatbot is 'Chatbot message history per user.';
+
+create index idx_chatbot_user_id on public.chatbot(user_id);
+create index idx_chatbot_created_at on public.chatbot(created_at desc);
+
+alter table public.chatbot enable row level security;
+
+create policy "Own chatbot history"
+    on public.chatbot for all
+    using (auth.uid() = user_id)
+    with check (auth.uid() = user_id);

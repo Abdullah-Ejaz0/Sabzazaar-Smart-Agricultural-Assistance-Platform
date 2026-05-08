@@ -3,10 +3,12 @@ import os
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 from api.supabase_client import supabase, supabase_admin
 from api.middleware.auth import require_auth
 
 
+@api_view(["GET"])
 @require_auth
 @require_http_methods(["GET"])
 def recent_scans(request):
@@ -18,6 +20,7 @@ def recent_scans(request):
     return JsonResponse(result.data, safe=False)
 
 
+@api_view(["GET"])
 @require_auth
 @require_http_methods(["GET"])
 def scan_detail(request, scan_id):
@@ -32,6 +35,7 @@ def scan_detail(request, scan_id):
 
 
 @csrf_exempt
+@api_view(["POST"])
 @require_http_methods(["POST"])
 def save_scan(request):
     """
