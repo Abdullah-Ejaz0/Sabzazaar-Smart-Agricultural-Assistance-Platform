@@ -4,29 +4,12 @@ from api.views import (
     expert_views, auth_views, misc_views
 )
 
-from .views import (
-    cancel_onboarding,
-    check_phone_number,
-    complete_signup,
-    expert_community_post_detail,
-    expert_community_posts,
-    list_scan_images,
-    question_post_detail,
-    question_posts,
-    register_phone_number,
-    save_voice_assistant_preference,
-    soil_health_card_detail,
-    soil_health_cards,
-    start_language_onboarding,
-    upsert_user_profile,
-    user_profile_detail,
-    upload_scan_image,
-)
-
 urlpatterns = [
     # New simplified auth flow
-    path('users/check-phone/', check_phone_number),
-    path('users/complete-signup/', complete_signup),
+    
+    # path('users/check-phone/', ),
+    # path('users/complete-signup/', ),
+
     # Auth and profile
     path('auth/onboarding/',             auth_views.complete_onboarding),
     path('auth/settings/',               auth_views.update_settings),

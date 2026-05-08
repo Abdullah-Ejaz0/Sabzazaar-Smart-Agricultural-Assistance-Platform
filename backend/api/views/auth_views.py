@@ -2,11 +2,13 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 from api.supabase_client import supabase
 from api.middleware.auth import require_auth
 
 
 @csrf_exempt
+@api_view(["POST"])
 @require_http_methods(["POST"])
 def complete_onboarding(request):
     """POST /api/auth/onboarding/ — called after registration to save name, language, voice pref."""
@@ -25,6 +27,7 @@ def complete_onboarding(request):
 
 
 @csrf_exempt
+@api_view(["POST"])
 @require_auth
 @require_http_methods(["POST"])
 def update_settings(request):
@@ -43,6 +46,7 @@ def update_settings(request):
 
 
 @csrf_exempt
+@api_view(["GET", "PATCH"])
 @require_auth
 @require_http_methods(["GET", "PATCH"])
 def get_profile(request):
