@@ -67,7 +67,8 @@
 from django.urls import path
 from api.views import (
     scan_views, community_views, soil_views,
-    expert_views, auth_views, misc_views
+    expert_views, auth_views, misc_views,
+    disease_views, chatbot_views
 )
 
 urlpatterns = [
@@ -89,6 +90,7 @@ urlpatterns = [
 
     # ── Scans ──────────────────────────────────────────────────
     path('scans/recent/',                scan_views.recent_scans),
+    path('scans/detect/',                disease_views.detect_rice_disease),
     path('scans/<str:scan_id>/',         scan_views.scan_detail),
     path('scans/',                       scan_views.save_scan),
 
@@ -109,6 +111,8 @@ urlpatterns = [
 
     # ── Misc ───────────────────────────────────────────────────
     path('chatbot/faqs/',                misc_views.chatbot_faqs),
+    path('chatbot/ask/',                 chatbot_views.ask_chatbot),
+    path('chatbot/history/',             chatbot_views.chatbot_history),
     path('broadcasts/',                  misc_views.broadcasts),
     path('storage/upload-url/',          misc_views.get_upload_url),
     path('weather/',                     misc_views.weather),

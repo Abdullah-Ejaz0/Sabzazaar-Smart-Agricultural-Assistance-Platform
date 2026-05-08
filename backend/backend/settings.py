@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'rest_framework',
+    'drf_spectacular',
     'api',
 ]
 
@@ -30,7 +31,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 
-TEMPLATES = []
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
@@ -43,4 +53,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'UNAUTHENTICATED_USER': None,
+    'UNAUTHENTICATED_TOKEN': None,
+}
+
+SPECTACULAR_SETTINGS = {
+    "COMPONENT_SPLIT_REQUEST": True,
+    'TITLE': 'Sabzazaar API',
+    'DESCRIPTION': 'Backend API for Sabzazaar (Supabase-backed).',
+    'VERSION': '1.0.0',
+    # Work around Windows stderr issues that raise OSError in drf-spectacular.
+    'DISABLE_ERRORS_AND_WARNINGS': True,
 }

@@ -10,7 +10,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
         <ImageButton
             android:id="@+id/btnBack"
@@ -37,7 +40,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/ivHeaderIcon"
-            android:text="About AgriNova"
+            android:text="@string/about_sabzazaar"
             android:textColor="@color/text_primary"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -54,7 +57,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +80,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_leaf"
+                    android:src="@drawable/ic_sabzazaar_logo"
                     app:tint="@color/white" />
             </FrameLayout>
 
@@ -83,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="AgriNova"
+                android:text="@string/app_name"
                 android:textColor="@color/text_primary"
                 android:textSize="32sp"
                 android:textStyle="bold" />
@@ -209,7 +214,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="www.agrinova.pk"
+                        android:text="www.sabzazaar.pk"
                         android:textColor="@color/text_primary"
                         android:textSize="18sp"
                         android:textStyle="bold" />

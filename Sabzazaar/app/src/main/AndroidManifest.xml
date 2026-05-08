@@ -29,7 +29,7 @@
 
         <!-- Auth Activities -->
         <activity
-            android:name=".activities.auth.SplashActivity"
+            android:name=".activities.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,7 +48,7 @@
 
         <!-- Main/Feature Activities -->
         <activity
-            android:name=".activities.main.MainActivity"
+            android:name=".activities.auth.SplashActivity"
             android:exported="false" />
         <activity
             android:name=".activities.main.ChatbotActivity"
