@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Sabzazaar</string>
-    <string name="agrinova">AgriNova</string>
+    <string name="agrinova">Sabzazaar</string>
     <string name="smart_farming_assistant">Smart Farming Assistant</string>
-    <string name="agrinova_logo">AgriNova Logo</string>
+    <string name="sabzazaar_logo">Sabzazaar Logo</string>
     <string name="secure_email_password_access"><![CDATA[Secure email & password access]]></string>
     <string name="expert_login">Expert Login</string>
     <string name="continue_with_phone_number_otp">Continue with phone number (OTP)</string>
@@ -70,7 +70,7 @@
     <string name="content_desc_help">Help</string>
     <string name="help_tutorials">Help &amp; Tutorials</string>
     <string name="content_desc_about">About</string>
-    <string name="about_agrinova">About AgriNova</string>
+    <string name="about_sabzazaar">About Sabzazaar</string>
 
     <string name="title_result">Result</string>
     <string name="high_risk">High Risk</string>

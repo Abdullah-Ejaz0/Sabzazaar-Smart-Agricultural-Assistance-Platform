@@ -22,7 +22,7 @@
             android:id="@+id/logo"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:src="@drawable/ic_agrinova_logo"
+            android:src="@drawable/ic_sabzazaar_logo"
             app:tint="#2e7d32"
             android:contentDescription="logo"
             app:layout_constraintTop_toTopOf="parent"

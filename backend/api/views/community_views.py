@@ -18,7 +18,6 @@ def community_feed(request):
     }).execute()
     return JsonResponse(result.data, safe=False)
 
-
 @csrf_exempt
 @require_auth
 @require_http_methods(["POST"])
