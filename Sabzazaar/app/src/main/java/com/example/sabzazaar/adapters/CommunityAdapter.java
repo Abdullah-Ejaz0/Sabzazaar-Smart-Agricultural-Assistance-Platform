@@ -3,6 +3,7 @@ package com.example.sabzazaar.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +35,18 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CommunityPost post = posts.get(position);
         holder.tvQuestionText.setText(post.getBody());
+
+        // Swap icon: tick if verified answer exists, question mark if not.
+        // Both stay Sabzazaar green.
+        if (post.isExpertAnswered()) {
+            holder.ivQuestionIcon.setImageResource(R.drawable.ic_check);
+        } else {
+            holder.ivQuestionIcon.setImageResource(R.drawable.ic_help);
+        }
+        holder.ivQuestionIcon.setColorFilter(
+            android.graphics.Color.parseColor("#2e7d32"),
+            android.graphics.PorterDuff.Mode.SRC_IN);
+
         holder.itemView.setOnClickListener(v -> listener.onPostClick(post));
     }
 
@@ -49,10 +62,12 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvQuestionText;
+        ImageView ivQuestionIcon;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvQuestionText = itemView.findViewById(R.id.tvQuestionText);
+            ivQuestionIcon = itemView.findViewById(R.id.ivQuestionIcon);
         }
     }
 }

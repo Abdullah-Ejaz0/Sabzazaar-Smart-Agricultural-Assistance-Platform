@@ -296,12 +296,30 @@ def detect_rice_disease(request):
         probs = {name: float(probabilities[idx].item() * 100) for idx, name in enumerate(CLASS_NAMES)}
         predicted_idx = int(probabilities.argmax().item())
     except BaseException as exc:   # catches SystemExit from rembg as well as regular errors
-        return JsonResponse({"error": f"Inference failed: {exc}"}, status=500)
+        import traceback
+        traceback.print_exc()
+        return JsonResponse({"error": f"Inference failed: {exc}", "traceback": traceback.format_exc()}, status=500)
 
     predicted_key = CLASS_NAMES[predicted_idx]
     confidence = probs[predicted_key]
-    disease_name = predicted_key.replace("_", " ").title()
-    risk_level = _risk_level_from_confidence(confidence)
+    
+    # Threshold check: if confidence is too low, it's likely not a leaf or the photo is too blurry
+    if confidence < 40.0:
+        disease_name = "Healthy or Inconclusive"
+        risk_level = "low"
+        llm_report = "We couldn't clearly identify any rice disease in this photo. Please ensure the leaf is in focus and well-lit, then try again."
+        recommendations = {
+            "display_name": "No Disease Detected",
+            "pathogen": "None",
+            "fertilizer": {"recommendation": "Continue your regular fertilizer schedule.", "chemicals": [], "note": ""},
+            "pesticide": {"recommendation": "No pesticide needed at this time.", "chemicals": []},
+            "disclaimer": "This is an automated scan. If you see symptoms, please consult an expert."
+        }
+    else:
+        disease_name = predicted_key.replace("_", " ").title()
+        risk_level = _risk_level_from_confidence(confidence)
+        llm_report = _get_llm_disease_explanation(predicted_key, confidence) if use_llm else None
+        recommendations = _build_recommendations(predicted_key)
 
     image_ext = os.path.splitext(image.name)[1] or ".jpg"
     object_name = f"{request.user_id}/{uuid.uuid4().hex}{image_ext}"
@@ -340,9 +358,6 @@ def detect_rice_disease(request):
         scan_id = scan_result.data
     except Exception as exc:
         return JsonResponse({"error": f"Database save failed: {exc}"}, status=502)
-
-    llm_report = _get_llm_disease_explanation(predicted_key, confidence) if use_llm else None
-    recommendations = _build_recommendations(predicted_key)
 
     return JsonResponse(
         {

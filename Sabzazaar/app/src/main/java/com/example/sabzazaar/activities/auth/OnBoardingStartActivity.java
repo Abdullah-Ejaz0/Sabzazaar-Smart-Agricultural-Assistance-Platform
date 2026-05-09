@@ -15,6 +15,11 @@ import com.example.sabzazaar.activities.expert.ExpertLoginActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class OnBoardingStartActivity extends AppCompatActivity {
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(com.example.sabzazaar.utils.LocaleHelper.setLocaleFromPreferences(newBase));
+    }
+
     ConstraintLayout expertLoginContainer;
     MaterialButton farmerLoginBtn;
     @Override

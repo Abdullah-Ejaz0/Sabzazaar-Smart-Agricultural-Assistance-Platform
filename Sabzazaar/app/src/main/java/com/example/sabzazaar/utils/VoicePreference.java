@@ -1,6 +1,6 @@
 package com.example.sabzazaar.utils;
 
-import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -16,10 +16,11 @@ import androidx.core.content.ContextCompat;
 import com.example.sabzazaar.R;
 import com.example.sabzazaar.activities.main.MainActivity;
 import com.example.sabzazaar.models.CompleteSignupResponse;
-import com.example.sabzazaar.models.SignupRequest;
+import com.example.sabzazaar.models.FarmerSignupRequest;
 import com.example.sabzazaar.models.UserData;
 import com.example.sabzazaar.network.ApiService;
 import com.example.sabzazaar.network.RetrofitClient;
+import com.example.sabzazaar.utils.TTSManager;
 import com.google.android.material.button.MaterialButton;
 
 import retrofit2.Call;
@@ -28,7 +29,7 @@ import retrofit2.Response;
 
 public class VoicePreference extends AppCompatActivity {
 
-    private ImageButton backBtn;
+    private ImageButton backBtn, speakerBtn;
     private LinearLayout voiceYes, voiceNo;
     private MaterialButton voiceNext;
     private ImageView yesIcon, noIcon;
@@ -38,6 +39,7 @@ public class VoicePreference extends AppCompatActivity {
 
     private String phone;
     private String language;
+    private TTSManager ttsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +50,28 @@ public class VoicePreference extends AppCompatActivity {
         getIntentData();
         applyPreviousSelection();
         setupListeners();
+        updateListenButtonUI();
     }
 
     private void init() {
         backBtn = findViewById(R.id.backBtn);
+        speakerBtn = findViewById(R.id.speakerBtn);
         voiceYes = findViewById(R.id.voiceYes);
         voiceNo = findViewById(R.id.voiceNo);
         voiceNext = findViewById(R.id.voiceNext);
         yesIcon = findViewById(R.id.yesIcon);
         noIcon = findViewById(R.id.noIcon);
+        ttsManager = new TTSManager(this);
         setButtonDisabled();
+    }
+
+    private void updateListenButtonUI() {
+        SharedPreferences sPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        boolean isEnabled = sPref.getBoolean("voice_assistant_enabled", true);
+        if (speakerBtn != null) {
+            speakerBtn.setBackgroundResource(isEnabled ? R.drawable.bg_circle_light : R.drawable.bg_circle_outline);
+            speakerBtn.setImageResource(isEnabled ? R.drawable.ic_volume_up : R.drawable.ic_volume_off);
+        }
     }
 
     private void getIntentData() {
@@ -84,6 +98,7 @@ public class VoicePreference extends AppCompatActivity {
 
         voiceYes.setOnClickListener(v -> selectYes());
         voiceNo.setOnClickListener(v -> selectNo());
+        speakerBtn.setOnClickListener(v -> speakInstructions());
         voiceNext.setOnClickListener(v -> {
             if (!isSelected) return;
             completeSignup();
@@ -122,9 +137,10 @@ public class VoicePreference extends AppCompatActivity {
 
     private void completeSignup() {
         ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
-        SignupRequest request = new SignupRequest(phone, language, voiceEnabled);
+        // Use phone already converted to international format (stored from OtpPageActivity)
+        FarmerSignupRequest request = new FarmerSignupRequest(phone, language, voiceEnabled);
 
-        apiService.completeSignup(request).enqueue(new Callback<CompleteSignupResponse>() {
+        apiService.farmerSignup(request).enqueue(new Callback<CompleteSignupResponse>() {
             @Override
             public void onResponse(Call<CompleteSignupResponse> call, Response<CompleteSignupResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -172,8 +188,24 @@ public class VoicePreference extends AppCompatActivity {
     }
 
     private boolean allPermissionsGranted() {
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
+        return ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void speakInstructions() {
+        String text = "Do you want voice assistance? Yes or No. Then tap Continue.";
+        if ("ur".equals(language)) {
+            text = "کیا آپ کو آواز کی مدد چاہیے؟ ہاں یا نہیں۔ پھر جاری رکھیں پر ٹیپ کریں۔";
+        }
+        ttsManager.speak(text);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (ttsManager != null) {
+            ttsManager.shutdown();
+        }
+        super.onDestroy();
     }
 }

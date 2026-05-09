@@ -48,7 +48,7 @@
                 app:tint="@color/green" />
         </RelativeLayout>
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -88,9 +88,10 @@
                         android:padding="16dp"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/tvStatPending"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12"
+                            android:text="0"
                             android:textColor="@color/green"
                             android:textSize="32sp"
                             android:textStyle="bold" />
@@ -112,9 +113,10 @@
                         android:padding="16dp"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/tvStatAnswered"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8"
+                            android:text="0"
                             android:textColor="@color/green"
                             android:textSize="32sp"
                             android:textStyle="bold" />
@@ -136,9 +138,10 @@
                         android:padding="16dp"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/tvStatToday"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5"
+                            android:text="0"
                             android:textColor="@color/green"
                             android:textSize="32sp"
                             android:textStyle="bold" />
@@ -160,9 +163,10 @@
                         android:padding="16dp"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/tvStatUrgent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3"
+                            android:text="0"
                             android:textColor="@color/green"
                             android:textSize="32sp"
                             android:textStyle="bold" />
@@ -185,115 +189,30 @@
                     android:textStyle="bold"
                     android:layout_marginStart="4dp"/>
 
-                <!-- Question Item -->
-                <LinearLayout
-                    android:id="@+id/llQuestion1"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPendingQuestions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_lang_box"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:src="@drawable/ic_leaf"
-                        app:tint="@color/green" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ali Raza"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="How to treat yellow spots on wheat?"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_arrow_back"
-                        android:rotation="180"
-                        app:tint="@color/green" />
-                </LinearLayout>
-
-                <!-- Question Item -->
-                <LinearLayout
-                    android:id="@+id/llQuestion2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_lang_box"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:src="@drawable/ic_spray"
-                        app:tint="@color/green" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sara Bibi"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Best fertilizer for rice now?"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_arrow_back"
-                        android:rotation="180"
-                        app:tint="@color/green" />
-                </LinearLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnBroadcast"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
-                    android:text="Send Broadcast"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="#f9a825"
-                    app:cornerRadius="40dp"
-                    app:icon="@drawable/ic_volume_up" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Sticky Bottom Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBroadcast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="16dp"
+            android:text="Send New Broadcast"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="#f9a825"
+            app:cornerRadius="40dp"
+            app:icon="@drawable/ic_volume_up" />
 
     </LinearLayout>
 

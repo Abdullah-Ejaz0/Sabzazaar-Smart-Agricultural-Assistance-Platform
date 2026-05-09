@@ -63,6 +63,7 @@
             android:background="@drawable/bg_demo_note">
 
             <TextView
+                android:id="@+id/tvRecommendedTreatment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/recommended_treatment"
@@ -72,6 +73,7 @@
                 android:layout_marginBottom="12dp"/>
 
             <TextView
+                android:id="@+id/tvTreatmentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/copper_oxychloride"
@@ -81,6 +83,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <TextView
+                android:id="@+id/tvDosage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dosage"
@@ -89,6 +92,7 @@
                 android:layout_marginBottom="4dp"/>
 
             <TextView
+                android:id="@+id/tvFrequency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/frequency"

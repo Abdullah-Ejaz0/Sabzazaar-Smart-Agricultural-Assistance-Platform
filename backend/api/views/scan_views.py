@@ -17,7 +17,22 @@ def recent_scans(request):
         'p_user_id': request.user_id,
         'p_limit': 5
     }).execute()
-    return JsonResponse(result.data, safe=False)
+    
+    scans = result.data or []
+    for scan in scans:
+        if scan.get('image_url'):
+            try:
+                # Try generating a signed URL using supabase_admin to bypass RLS policies
+                signed = supabase_admin.storage.from_("scan-images").create_signed_url(scan['image_url'], 3600)
+                scan['signed_url'] = signed.get('signedURL')
+            except Exception:
+                try:
+                    # Fallback to public URL
+                    scan['signed_url'] = supabase_admin.storage.from_("scan-images").get_public_url(scan['image_url'])
+                except Exception:
+                    scan['signed_url'] = None
+
+    return JsonResponse(scans, safe=False)
 
 
 @api_view(["GET"])

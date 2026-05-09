@@ -134,6 +134,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tvRepliesHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -141,93 +142,42 @@
                 android:text="Expert Answers"
                 android:textColor="@color/green"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <!-- Verified Answer -->
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvVerifiedReplies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_demo_note"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_user"
-                        app:tint="@color/green" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:text="Officer Akram"
-                        android:textColor="@color/text_primary"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_primary_btn"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:text="VERIFIED"
-                        android:textColor="@color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="This looks like Yellow Rust. Apply fungicide XYZ at 2g/L water. Ensure proper drainage in the field."
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
 
             <TextView
+                android:id="@+id/tvFarmerDiscussionsHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
                 android:text="Farmer Discussions"
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <!-- Regular Answer -->
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRegularReplies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_lang_box"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:nestedScrollingEnabled="false" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Farmer Jamal"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="bold" />
+            <ProgressBar
+                android:id="@+id/pbReplies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:indeterminateTint="@color/green" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="I used copper spray on my crop and it worked well last season."
-                    android:textColor="@color/text_primary" />
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

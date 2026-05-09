@@ -23,24 +23,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/speakerCard"
+        <ImageButton
+            android:id="@+id/speakerBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="#D3D3D3"
             android:layout_margin="12dp"
+            android:background="@drawable/bg_circle_light"
+            android:padding="10dp"
+            android:src="@drawable/ic_volume_up"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:src="@drawable/ic_volume_up"
-                app:tint="#1f5f24" />
-        </androidx.cardview.widget.CardView>
+            app:tint="#1f5f24" />
 
         <LinearLayout
             android:id="@+id/titleRow"

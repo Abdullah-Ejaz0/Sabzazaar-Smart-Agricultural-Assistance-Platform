@@ -86,7 +86,7 @@
                 android:hint="Username"
                 android:inputType="text"
                 android:padding="16dp"
-                android:textColor="@color/text_primary"
+                android:textColor="#000000"
                 android:textSize="18sp" />
 
             <EditText
@@ -98,7 +98,7 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="16dp"
-                android:textColor="@color/text_primary"
+                android:textColor="#000000"
                 android:textSize="18sp" />
 
             <com.google.android.material.button.MaterialButton

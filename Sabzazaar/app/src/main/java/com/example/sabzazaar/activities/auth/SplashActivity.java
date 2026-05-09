@@ -17,12 +17,19 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.sabzazaar.R;
 import com.example.sabzazaar.activities.main.MainActivity;
+import com.example.sabzazaar.activities.expert.ExpertDashboardActivity;
 
 public class SplashActivity extends AppCompatActivity {
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(com.example.sabzazaar.utils.LocaleHelper.setLocaleFromPreferences(newBase));
+    }
+
     ImageView logo;
     TextView text;
     SharedPreferences sPref;
     Animation logoAnim, textAnim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +44,23 @@ public class SplashActivity extends AppCompatActivity {
         init();
         applyAnimation();
 
-        new Handler().postDelayed(() -> {
-            navigate();
-        }, 1000);
+        new Handler().postDelayed(this::navigate, 1500);
     }
 
     private void navigate() {
-        if (!sPref.getBoolean("loggedIn", false)){
-            startActivity(new Intent(SplashActivity.this, OnBoardingStartActivity.class));
-        }else{
+        boolean isExpert = sPref.getBoolean("is_expert", false);
+        boolean isLoggedIn = sPref.getBoolean("loggedIn", false);
+        String token = sPref.getString("access_token", null);
+
+        if (isExpert && token != null) {
+            startActivity(new Intent(SplashActivity.this, ExpertDashboardActivity.class));
+            finish();
+        } else if (isLoggedIn) {
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            finish();
+        } else {
+            startActivity(new Intent(SplashActivity.this, OnBoardingStartActivity.class));
+            finish();
         }
     }
 
@@ -54,6 +68,7 @@ public class SplashActivity extends AppCompatActivity {
         logo.setAnimation(logoAnim);
         text.setAnimation(textAnim);
     }
+
     private void init() {
         sPref = getSharedPreferences("user", MODE_PRIVATE);
         logo = findViewById(R.id.logo);
@@ -61,7 +76,5 @@ public class SplashActivity extends AppCompatActivity {
 
         logoAnim = AnimationUtils.loadAnimation(this, R.anim.logo_anim);
         textAnim = AnimationUtils.loadAnimation(this, R.anim.text_anim);
-
-
     }
 }

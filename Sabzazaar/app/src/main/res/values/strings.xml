@@ -33,6 +33,7 @@
 
     <!-- UI Components -->
     <string name="user_name_sara">Sara</string>
+    <string name="default_farmer_name">Farmer</string>
     <string name="content_desc_listen">Listen</string>
     <string name="content_desc_weather_icon">Weather Icon</string>
     <string name="todays_weather">Today\'s Weather</string>
@@ -113,6 +114,7 @@
     <string name="pesticide">Pesticide</string>
     <string name="how_to_scan">How to scan?</string>
     <string name="disease_info">Disease info</string>
+    <string name="disease_context_format">Context: %1$s - %2$s</string>
     <string name="common_questions">Common Questions</string>
     <string name="type_question">Type your question...</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.sabzazaar.activities.main;
 
 import com.example.sabzazaar.R;
+import com.example.sabzazaar.utils.TTSManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +11,23 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SoilHealthActivity extends AppCompatActivity {
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(com.example.sabzazaar.utils.LocaleHelper.setLocaleFromPreferences(newBase));
+    }
+
 
     private EditText phInput, nInput, pInput, kInput;
     private ProgressBar phMeter, nMeter, pMeter, kMeter;
     private TextView phValue, nValue, pValue, kValue, soilSuggestion;
+    private TTSManager ttsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soil_health);
+
+        ttsManager = new TTSManager(this);
 
         phInput = findViewById(R.id.phInput);
         nInput = findViewById(R.id.nInput);
@@ -53,11 +62,25 @@ public class SoilHealthActivity extends AppCompatActivity {
         findViewById(R.id.btnListen).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement TTS
+                String text = soilSuggestion.getText().toString();
+                if (!text.isEmpty()) {
+                    ttsManager.speak(text);
+                }
             }
         });
 
+        updateListenButtonUI();
         updateSoilMeters();
+    }
+
+    private void updateListenButtonUI() {
+        android.content.SharedPreferences sPref = getSharedPreferences("user", android.content.Context.MODE_PRIVATE);
+        boolean isEnabled = sPref.getBoolean("voice_assistant_enabled", true);
+        android.widget.ImageButton btnListen = findViewById(R.id.btnListen);
+        if (btnListen != null) {
+            btnListen.setBackgroundResource(isEnabled ? R.drawable.bg_circle_light : R.drawable.bg_circle_outline);
+            btnListen.setImageResource(isEnabled ? R.drawable.ic_volume_up : R.drawable.ic_volume_off);
+        }
     }
 
     private void updateSoilMeters() {
@@ -96,4 +119,13 @@ public class SoilHealthActivity extends AppCompatActivity {
             // Handle error
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        if (ttsManager != null) {
+            ttsManager.shutdown();
+        }
+        super.onDestroy();
+    }
 }
+

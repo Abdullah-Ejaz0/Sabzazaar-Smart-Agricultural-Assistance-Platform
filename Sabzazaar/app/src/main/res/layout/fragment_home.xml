@@ -36,7 +36,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/ivHeaderIcon"
-                android:text="@string/user_name_sara"
+                android:text="@string/default_farmer_name"
                 android:textColor="@color/text_primary"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -51,6 +51,66 @@
                 android:src="@drawable/ic_volume_up"
                 app:tint="@color/green" />
         </RelativeLayout>
+ 
+        <!-- Broadcast Alert Banner (Emergency Style) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBroadcastAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="#D32F2F"> <!-- Emergency Red -->
+ 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+ 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+ 
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_volume_up"
+                        app:tint="@color/white" />
+ 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="EXPERT EMERGENCY ALERT"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+ 
+                <TextView
+                    android:id="@+id/tvBroadcastMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="CRITICAL WARNING: Heavy pest attack detected in your region. Check crops now!"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+ 
+                <TextView
+                    android:id="@+id/tvBroadcastTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Sent 2 hours ago"
+                    android:textColor="#FFCDD2"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Weather Card -->
         <androidx.cardview.widget.CardView

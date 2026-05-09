@@ -4,6 +4,7 @@ import com.example.sabzazaar.R;
 import com.example.sabzazaar.models.WeatherResponse;
 import com.example.sabzazaar.network.ApiService;
 import com.example.sabzazaar.network.RetrofitClient;
+import com.example.sabzazaar.utils.TTSManager;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,20 +21,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherDetailsActivity extends AppCompatActivity {
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(com.example.sabzazaar.utils.LocaleHelper.setLocaleFromPreferences(newBase));
+    }
+
 
     private LinearLayout llAdviceContainer;
     private LinearLayout llForecastContainer;
+    private TTSManager ttsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_details);
 
+        ttsManager = new TTSManager(this);
+
         llAdviceContainer = findViewById(R.id.llAdviceContainer);
         llForecastContainer = findViewById(R.id.llForecastContainer);
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         
+        findViewById(R.id.btnListen).setOnClickListener(v -> speakWeatherDetails());
+
         fetchWeatherData();
     }
 
@@ -115,9 +126,31 @@ public class WeatherDetailsActivity extends AppCompatActivity {
         return R.drawable.ic_cloud_sun;
     }
 
+    private void speakWeatherDetails() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Weather details. ");
+        for (int i = 0; i < llAdviceContainer.getChildCount(); i++) {
+            View child = llAdviceContainer.getChildAt(i);
+            TextView tv = child.findViewById(R.id.tvText);
+            if (tv != null) {
+                sb.append(tv.getText().toString()).append(". ");
+            }
+        }
+        ttsManager.speak(sb.toString());
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (ttsManager != null) {
+            ttsManager.shutdown();
+        }
+        super.onDestroy();
+    }
+
     private static class AdviceItem {
         String text;
         int icon;
         AdviceItem(String text, int icon) { this.text = text; this.icon = icon; }
     }
 }
+

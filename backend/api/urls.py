@@ -101,11 +101,13 @@ urlpatterns = [
     # ── Community ──────────────────────────────────────────────
     path('community/',                   community_views.community_feed),
     path('community/post/',              community_views.submit_post),
+    path('community/upload-photo/',      community_views.upload_photo),
+    path('community/my-history/',        community_views.user_history),
     path('community/<str:post_id>/replies/', community_views.submit_reply),
     path('community/<str:post_id>/',     community_views.post_detail),
 
     # ── Expert portal ──────────────────────────────────────────
-    path('expert/dashboard/',            expert_views.dashboard_stats),
+    path('expert/dashboard/stats/',      expert_views.dashboard_stats),
     path('expert/pending/',              expert_views.pending_questions),
     path('expert/broadcast/',            expert_views.send_broadcast),
 

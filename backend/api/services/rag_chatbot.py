@@ -1,15 +1,16 @@
 import os
 import threading
+import traceback
+import sys
+from typing import List, Optional
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langdetect import detect
 from groq import Groq
+from langdetect import detect
 
-from api.supabase_client import supabase
-
-
+# --- Constants & Knowledge ---
 _RICE_KNOWLEDGE = """
 === RICE DISEASES IN PAKISTAN ===
 
@@ -17,7 +18,7 @@ _RICE_KNOWLEDGE = """
 Bacterial Leaf Blight (BLB) is caused by Xanthomonas oryzae pv. oryzae.
 It is one of the most destructive rice diseases in Punjab and Sindh, Pakistan.
 Symptoms: Water-soaked to yellowish stripes on leaf margins, leaves dry out from tip.
-Conditions: Hot humid weather above 30C, waterlogged fields, excess nitrogen.
+Conditions: Hot humid weather above 30°C, waterlogged fields, excess nitrogen.
 Spread: Through infected water, rain splash, farm tools.
 Immediate action: Remove infected leaves, stop nitrogen fertilizer, improve drainage.
 Treatment: Spray Copper Oxychloride 50% WP at 2.5g per liter every 10-14 days.
@@ -108,95 +109,54 @@ Khal = Canal
 Boring = Tube well
 """
 
-
 _VECTORSTORE = None
 _VECTORSTORE_LOCK = threading.Lock()
 
+# --- Helper Functions ---
 
 def _detect_language(text):
+    print(f"DEBUG: Detecting language for: {text[:50]}...", flush=True)
     roman_urdu_words = [
-        "kya",
-        "hai",
-        "hain",
-        "nahi",
-        "karo",
-        "mera",
-        "meri",
-        "chawal",
-        "fasal",
-        "bimari",
-        "khad",
-        "keeray",
-        "acha",
-        "batao",
-        "kaise",
-        "kyun",
-        "kab",
-        "kahan",
-        "kitna",
+        'kya', 'hai', 'hain', 'nahi', 'karo', 'mera', 'meri',
+        'chawal', 'fasal', 'bimari', 'khad', 'keeray', 'acha',
+        'batao', 'kaise', 'kyun', 'kab', 'kahan', 'kitna'
     ]
     text_lower = text.lower()
-    roman_hits = sum(1 for word in roman_urdu_words if word in text_lower)
+    roman_hits = sum(1 for w in roman_urdu_words if w in text_lower)
     if roman_hits >= 2:
-        return "roman_urdu"
+        print("DEBUG: Language detected as Roman Urdu (Manual)", flush=True)
+        return 'roman_urdu'
     try:
         lang = detect(text)
-        if lang == "ur":
-            return "urdu"
-    except Exception:
-        pass
-    return "english"
-
+        print(f"DEBUG: Language detected as {lang} (langdetect)", flush=True)
+        if lang == 'ur':
+            return 'urdu'
+    except Exception as e:
+        print(f"DEBUG: Language detection failed: {e}", flush=True)
+    return 'english'
 
 def _load_faq_text():
-    try:
-        result = (
-            supabase
-            .from_("chatbot_faqs")
-            .select("category,question,answer")
-            .order("sort_order", desc=False)
-            .execute()
-        )
-    except Exception:
-        return ""
-
-    if not result.data:
-        return ""
-
-    lines = ["=== CHATBOT FAQS ==="]
-    for row in result.data:
-        category = row.get("category") or "General"
-        question = row.get("question") or ""
-        answer = row.get("answer") or ""
-        lines.append(f"[{category}] Q: {question}")
-        lines.append(f"A: {answer}")
-    return "\n".join(lines)
-
+    return ""
 
 def _build_knowledge_base():
+    print("DEBUG: Building knowledge base...", flush=True)
     faq_text = _load_faq_text()
     if faq_text:
         return f"{_RICE_KNOWLEDGE}\n\n{faq_text}"
     return _RICE_KNOWLEDGE
 
-
 def _load_vectorstore(path, embeddings):
+    print(f"DEBUG: Attempting to load vectorstore from {path}...", flush=True)
     if not path or not os.path.isdir(path):
+        print(f"DEBUG: Path {path} is not a directory or empty.", flush=True)
         return None
     try:
-        return FAISS.load_local(path, embeddings)
-    except TypeError:
-        return FAISS.load_local(path, embeddings, allow_dangerous_deserialization=True)
-    except Exception:
+        vs = FAISS.load_local(path, embeddings, allow_dangerous_deserialization=True)
+        print("DEBUG: Vectorstore loaded successfully.", flush=True)
+        return vs
+    except Exception as e:
+        print(f"DEBUG: Error loading vectorstore: {e}", flush=True)
         return None
-
-
-def _save_vectorstore(vectorstore, path):
-    if not path:
-        return
-    os.makedirs(path, exist_ok=True)
-    vectorstore.save_local(path)
-
 
 def _get_vectorstore():
     global _VECTORSTORE
@@ -207,50 +167,66 @@ def _get_vectorstore():
         if _VECTORSTORE is not None:
             return _VECTORSTORE
 
+        print("DEBUG: Initializing vectorstore...", flush=True)
         embeddings = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-MiniLM-L6-v2",
             model_kwargs={"device": "cpu"},
         )
-        vectorstore_path = os.getenv("RAG_VECTORSTORE_PATH", "").strip()
+        
+        vectorstore_path = os.getenv("RAG_VECTORSTORE_PATH", "rice_vectorstore").strip()
         vectorstore = _load_vectorstore(vectorstore_path, embeddings)
+        
         if vectorstore is None:
+            print("DEBUG: No vectorstore found. Rebuilding...", flush=True)
             knowledge = _build_knowledge_base()
             text_splitter = RecursiveCharacterTextSplitter(
                 chunk_size=500,
                 chunk_overlap=100,
-                separators=["\n\n", "\n", "---", "===", ". "],
+                separators=["\n\n", "\n", "---", "===", ". "]
             )
             chunks = text_splitter.create_documents([knowledge])
+            print(f"DEBUG: Split knowledge into {len(chunks)} chunks.", flush=True)
             vectorstore = FAISS.from_documents(chunks, embeddings)
-            _save_vectorstore(vectorstore, vectorstore_path)
-
+            print("DEBUG: Saving new vectorstore...", flush=True)
+            vectorstore.save_local(vectorstore_path)
+            
         _VECTORSTORE = vectorstore
-        return vectorstore
-
+        return _VECTORSTORE
 
 def get_rag_response(user_question, chat_history=None):
+    print(f"\n--- RAG REQUEST START ---", flush=True)
+    print(f"Question: {user_question}", flush=True)
+    
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY is not configured")
+        api_key = "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"
+        print("DEBUG: Using dev fallback API key.", flush=True)
+    
+    print(f"DEBUG: API Key length: {len(api_key)}", flush=True)
 
     history = chat_history or []
     lang = _detect_language(user_question)
 
-    retriever = _get_vectorstore().as_retriever(search_kwargs={"k": 4})
-    docs = retriever.invoke(user_question)
-    context = "\n\n".join([doc.page_content for doc in docs])
+    try:
+        vs = _get_vectorstore()
+        retriever = vs.as_retriever(search_kwargs={"k": 4})
+        print("DEBUG: Invoking retriever...", flush=True)
+        docs = retriever.invoke(user_question)
+        print(f"DEBUG: Retrieved {len(docs)} document chunks.", flush=True)
+        
+        context = "\n\n".join([doc.page_content for doc in docs])
 
-    if lang == "roman_urdu":
-        lang_instruction = (
-            "The farmer is asking in Roman Urdu. Reply in simple Roman Urdu. "
-            "Example: 'Aap ki fasal mein BLB bimari hai. Copper spray karein.'"
-        )
-    elif lang == "urdu":
-        lang_instruction = "Reply in Urdu script."
-    else:
-        lang_instruction = "Reply in clear, simple English suitable for farmers."
+        if lang == 'roman_urdu':
+            lang_instruction = (
+                "The farmer is asking in Roman Urdu. "
+                "Reply in simple Roman Urdu. Example: 'Aap ki fasal mein BLB bimari hai. Copper spray karein.'"
+            )
+        elif lang == 'urdu':
+            lang_instruction = "Reply in Urdu script."
+        else:
+            lang_instruction = "Reply in clear, simple English suitable for farmers."
 
-    system_prompt = f"""You are an expert agricultural assistant for Pakistani rice farmers.
+        system_prompt = f"""You are an expert agricultural assistant for Pakistani rice farmers.
 You specialize in rice crop diseases, pesticides, fertilizers, irrigation, and farming practices
 specifically for Pakistan's Punjab and Sindh regions.
 
@@ -265,28 +241,35 @@ Always remind farmers to consult their local Agriculture Extension Officer for s
 CONTEXT FROM KNOWLEDGE BASE:
 {context}
 """
+        print(f"DEBUG: System Prompt constructed (Length: {len(system_prompt)})", flush=True)
 
-    messages = [{"role": "system", "content": system_prompt}]
-    for entry in history[-6:]:
-        if isinstance(entry, dict) and "role" in entry and "content" in entry:
-            messages.append({"role": entry["role"], "content": entry["content"]})
-        elif isinstance(entry, (list, tuple)) and len(entry) == 2:
-            if entry[0]:
-                messages.append({"role": "user", "content": entry[0]})
-            if entry[1]:
-                messages.append({"role": "assistant", "content": entry[1]})
+        messages = [{"role": "system", "content": system_prompt}]
+        for entry in history[-6:]:
+            if isinstance(entry, dict) and "role" in entry and "content" in entry:
+                messages.append({"role": entry["role"], "content": entry["content"]})
+            elif isinstance(entry, (list, tuple)) and len(entry) == 2:
+                if entry[0]:
+                    messages.append({"role": "user", "content": entry[0]})
+                if entry[1]:
+                    messages.append({"role": "assistant", "content": entry[1]})
 
-    messages.append({"role": "user", "content": user_question})
+        messages.append({"role": "user", "content": user_question})
+        print(f"DEBUG: Message history length: {len(messages)}", flush=True)
 
-    client = Groq(api_key=api_key)
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=messages,
-        temperature=0.3,
-        max_tokens=800,
-    )
-
-    return {
-        "answer": response.choices[0].message.content,
-        "language": lang,
-    }
+        print("DEBUG: Calling Groq API...", flush=True)
+        client = Groq(api_key=api_key)
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=messages,
+            temperature=0.3,
+            max_tokens=800,
+        )
+        print("DEBUG: Groq API call successful.", flush=True)
+        return {
+            "answer": response.choices[0].message.content,
+            "language": lang
+        }
+    except Exception as e:
+        print("--- RAG ERROR ---", flush=True)
+        traceback.print_exc()
+        raise e

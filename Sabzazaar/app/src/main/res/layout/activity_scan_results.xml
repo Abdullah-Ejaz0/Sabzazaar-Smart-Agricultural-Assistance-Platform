@@ -64,8 +64,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/content_desc_preview"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_leaf"
-                app:tint="@color/green" />
+                android:src="@drawable/ic_leaf" />
         </FrameLayout>
 
         <!-- Risk Indicator -->

@@ -192,42 +192,60 @@
                 android:hint="e.g., What is this disease on my wheat?"
                 android:minHeight="100dp"
                 android:textSize="18sp"
+                android:textColor="#000000"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btnCategory"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="Category"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_lang_box"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="12dp">
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
 
             <ImageView
+                android:id="@+id/ivCategoryIcon"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
+                android:layout_centerVertical="true"
                 android:src="@drawable/ic_leaf"
                 app:tint="@color/green" />
 
-            <TextView
-                android:layout_width="0dp"
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:text="Crop disease"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp" />
+                android:layout_toEndOf="@id/ivCategoryIcon"
+                android:layout_toStartOf="@id/ivArrow"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:minHeight="48dp"
+                android:background="@android:color/transparent"
+                android:spinnerMode="dropdown" />
 
             <ImageView
+                android:id="@+id/ivArrow"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:src="@drawable/ic_arrow_back"
                 android:rotation="270"
                 app:tint="@color/green" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <Button
             android:id="@+id/btnPost"

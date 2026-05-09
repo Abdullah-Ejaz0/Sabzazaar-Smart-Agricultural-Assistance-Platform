@@ -2,7 +2,27 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Sabzazaar" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/light_green</item>
+        <item name="colorOnPrimaryContainer">@color/green</item>
+        
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/brand_light_green</item>
+        <item name="colorOnSecondaryContainer">@color/green</item>
+        
+        <item name="colorAccent">@color/green</item>
+
+        <!-- Cursor and Focus -->
+        <item name="android:colorControlActivated">@color/green</item>
+        <item name="android:textCursorDrawable">@drawable/green_cursor</item>
+        
+        <item name="android:statusBarColor">@color/bg_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+        
+        <!-- Fix for dim EditText text -->
+        <item name="android:editTextColor">@color/black</item>
     </style>
 
     <style name="Theme.Sabzazaar" parent="Base.Theme.Sabzazaar" />

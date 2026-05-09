@@ -56,6 +56,7 @@ from api.services.rag_chatbot import get_rag_response
 @require_auth
 @require_http_methods(["POST"])
 def ask_chatbot(request):
+    print("\nDEBUG: ask_chatbot view called!", flush=True)
     """
     POST /api/chatbot/ask/
     Body: { "question": "...", "history": [{"role": "user", "content": "..."}] }

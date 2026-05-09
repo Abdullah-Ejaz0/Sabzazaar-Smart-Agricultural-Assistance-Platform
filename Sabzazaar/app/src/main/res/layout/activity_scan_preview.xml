@@ -62,8 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_leaf"
-            app:tint="#A5D6A5" />
+            android:src="@drawable/ic_leaf" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,6 +87,13 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+        <View
+            android:id="@+id/scanningLine"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/green"
+            android:visibility="gone" />
 
     </FrameLayout>
 

@@ -88,14 +88,15 @@
                     android:src="@drawable/ic_help"
                     app:tint="@color/green" />
 
-                <EditText
-                    android:id="@+id/etSearch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:hint="Search questions..."
-                    android:padding="12dp"
-                    android:textSize="18sp" />
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="Search questions..."
+                        android:padding="12dp"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
             </LinearLayout>
 
             <RelativeLayout
@@ -286,16 +287,17 @@
                         android:src="@drawable/ic_help"
                         app:tint="@color/green" />
 
-                    <EditText
-                        android:id="@+id/etQuestion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:background="@android:color/transparent"
-                        android:gravity="top"
-                        android:hint="e.g., What is this disease on my wheat?"
-                        android:minHeight="100dp"
-                        android:textSize="18sp" />
+                        <EditText
+                            android:id="@+id/etQuestion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="top"
+                            android:hint="e.g., What is this disease on my wheat?"
+                            android:minHeight="100dp"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout

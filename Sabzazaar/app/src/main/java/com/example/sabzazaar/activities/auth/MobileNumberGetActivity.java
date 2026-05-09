@@ -1,11 +1,12 @@
 package com.example.sabzazaar.activities.auth;
 
-import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.telephony.SmsManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -16,23 +17,39 @@ import androidx.core.content.ContextCompat;
 
 import com.example.sabzazaar.R;
 import com.example.sabzazaar.activities.main.MainActivity;
+import com.example.sabzazaar.utils.TTSManager;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.IOException;
 import java.util.Random;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+
 public class MobileNumberGetActivity extends AppCompatActivity {
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(com.example.sabzazaar.utils.LocaleHelper.setLocaleFromPreferences(newBase));
+    }
+
 
     TextInputLayout phoneLayout;
     TextInputEditText phoneInput;
 
     CardView sendOtpBtn, guestBtn;
     ImageView backBtn;
+    ImageButton speakerBtn;
 
     String pendingNumber;
     String pendingOtp;
 
+    private TTSManager ttsManager;
+
     private static final int SMS_PERMISSION_CODE = 101;
+    private static final String SUPABASE_URL = "https://evlnoytrwyjpnpiagjnn.supabase.co";
+    private static final String SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2bG5veXRyd3lqcG5waWFnam5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MzU2MTAsImV4cCI6MjA5MjAxMTYxMH0.oXx_g-1k2WDrusUZMfpesFrmLjHW5BG7rUrKgUQl-rs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +58,7 @@ public class MobileNumberGetActivity extends AppCompatActivity {
 
         init();
         setupListeners();
+        updateListenButtonUI();
     }
 
     private void init() {
@@ -49,6 +67,8 @@ public class MobileNumberGetActivity extends AppCompatActivity {
         sendOtpBtn = findViewById(R.id.sendOtpBtn);
         guestBtn = findViewById(R.id.guestBtn);
         backBtn = findViewById(R.id.backBtn);
+        speakerBtn = findViewById(R.id.speakerBtn);
+        ttsManager = new TTSManager(this);
 
         String existingNumber = getIntent().getStringExtra("phone");
         if (existingNumber != null) {
@@ -56,11 +76,27 @@ public class MobileNumberGetActivity extends AppCompatActivity {
         }
     }
 
+    private void updateListenButtonUI() {
+        SharedPreferences sPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        boolean isEnabled = sPref.getBoolean("voice_assistant_enabled", true);
+        if (speakerBtn != null) {
+            speakerBtn.setBackgroundResource(isEnabled ? R.drawable.bg_circle_light : R.drawable.bg_circle_outline);
+            speakerBtn.setImageResource(isEnabled ? R.drawable.ic_volume_up : R.drawable.ic_volume_off);
+        }
+    }
+
     private void setupListeners() {
         sendOtpBtn.setOnClickListener(v -> validateAndSendOtp());
 
+        speakerBtn.setOnClickListener(v -> speakInstructions());
+
         guestBtn.setOnClickListener(v -> {
             guestBtn.setSelected(true);
+            getSharedPreferences("user", MODE_PRIVATE).edit()
+                    .putBoolean("is_guest", true)
+                    .putBoolean("loggedIn", true)
+                    .putString("access_token", "")
+                    .apply();
             Intent intent = new Intent(MobileNumberGetActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -74,7 +110,6 @@ public class MobileNumberGetActivity extends AppCompatActivity {
     }
 
     private void validateAndSendOtp() {
-
         String number = phoneInput.getText() != null
                 ? phoneInput.getText().toString().trim()
                 : "";
@@ -87,33 +122,49 @@ public class MobileNumberGetActivity extends AppCompatActivity {
             return;
         }
 
-        String otp = generateOtp();
+        // Convert to international format before sending to Supabase
+        String internationalPhone = "+92" + number.substring(1);
 
-        pendingNumber = number;
-        pendingOtp = otp;
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{Manifest.permission.SEND_SMS},
-                    SMS_PERMISSION_CODE
-            );
-
-        } else {
-            sendSms(number, otp);
-        }
+        sendSupabaseOtp(number, internationalPhone);
     }
 
-    private void sendSms(String number, String otp) {
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(number, null, "Your OTP is: " + otp, null, null);
+    private void sendSupabaseOtp(String localNumber, String internationalPhone) {
+        String jsonBody = "{\"phone\":\"" + internationalPhone + "\"}";
 
-        Intent intent = new Intent(this, OtpPageActivity.class);
-        intent.putExtra("phone", number);
-        intent.putExtra("otp", otp);
-        startActivity(intent);
+        RequestBody requestBody = RequestBody.create(
+                jsonBody,
+                MediaType.parse("application/json")
+        );
+
+        okhttp3.Request request = new okhttp3.Request.Builder()
+                .url(SUPABASE_URL + "/auth/v1/otp")
+                .addHeader("apikey", SUPABASE_ANON_KEY)
+                .addHeader("Content-Type", "application/json")
+                .post(requestBody)
+                .build();
+
+        new OkHttpClient().newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
+                runOnUiThread(() -> showError("Network error: " + e.getMessage()));
+            }
+
+            @Override
+            public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response)
+                    throws IOException {
+                if (response.isSuccessful()) {
+                    runOnUiThread(() -> {
+                        // Navigate to OTP screen, pass the LOCAL format for display
+                        Intent intent = new Intent(MobileNumberGetActivity.this, OtpPageActivity.class);
+                        intent.putExtra("phone", localNumber);
+                        startActivity(intent);
+                    });
+                } else {
+                    String errorBody = response.body() != null ? response.body().string() : "";
+                    runOnUiThread(() -> showError("Failed to send OTP: " + errorBody));
+                }
+            }
+        });
     }
 
     private boolean isValidPakistaniNumber(String number) {
@@ -131,16 +182,23 @@ public class MobileNumberGetActivity extends AppCompatActivity {
         phoneLayout.setBoxStrokeColor(Color.RED);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == SMS_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (pendingNumber != null && pendingOtp != null) {
-                    sendSms(pendingNumber, pendingOtp);
-                }
-            }
+    private void speakInstructions() {
+        SharedPreferences sPref = getSharedPreferences("user", MODE_PRIVATE);
+        String lang = sPref.getString("preferred_language", "en");
+        String text = "Please enter your 11 digit mobile number starting with 03. Then tap Send OTP.";
+        if ("ur".equals(lang)) {
+            text = "براہ کرم اپنا گیارہ ہندسوں والا موبائل نمبر درج کریں جو صفر تین سے شروع ہوتا ہو۔ پھر او ٹی پی بھیجیں پر ٹیپ کریں۔";
+        } else if ("pa".equals(lang)) {
+            text = "مہربانی کر کے اپنا گیارہ ہندسیاں والا موبائل نمبر لکھو جیہڑا صفر تِن توں شروع ہوندا اے۔ فیر او ٹی پی بھیجو تے کلک کرو۔";
         }
+        ttsManager.speak(text);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (ttsManager != null) {
+            ttsManager.shutdown();
+        }
+        super.onDestroy();
     }
 }

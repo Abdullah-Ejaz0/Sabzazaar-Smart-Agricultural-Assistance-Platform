@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class CommunityPost implements Serializable {
-    @SerializedName("id")
+    @SerializedName("post_id")
     private String id;
     
     @SerializedName("author_name")
@@ -24,6 +24,9 @@ public class CommunityPost implements Serializable {
     
     @SerializedName("reply_count")
     private int replyCount;
+
+    @SerializedName("has_verified")
+    private boolean isExpertAnswered;
 
     // Getters and Setters
     public String getId() { return id; }
@@ -46,4 +49,7 @@ public class CommunityPost implements Serializable {
 
     public int getReplyCount() { return replyCount; }
     public void setReplyCount(int replyCount) { this.replyCount = replyCount; }
+
+    public boolean isExpertAnswered() { return isExpertAnswered; }
+    public void setExpertAnswered(boolean expertAnswered) { isExpertAnswered = expertAnswered; }
 }

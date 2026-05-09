@@ -208,23 +208,46 @@ def farmer_signup(request):
     except Exception:
         pass
 
-    # Call stored procedure to complete farmer signup
-    # (The auth.users row is created by Supabase Phone Auth on the frontend;
-    #  the on_auth_user_created trigger auto-creates the profile row.
-    #  This endpoint updates that profile with preferences.)
+    # Look up the auth.users entry created by Supabase phone OTP verification
     try:
-        result = supabase_admin.rpc('farmer_complete_signup', {
-            'p_phone':    phone_number,
-            'p_full_name': full_name,
-            'p_language': preferred_language,
-            'p_voice':    voice_assistant_enabled
-        }).execute()
+        auth_users = supabase_admin.auth.admin.list_users()
+        user_id = None
+        for u in auth_users:
+            if getattr(u, 'phone', None) == phone_number:
+                user_id = u.id
+                break
+
+        if not user_id:
+            return JsonResponse(
+                {'error': 'Phone number not verified in Supabase Auth. '
+                          'Complete OTP verification before calling signup.'},
+                status=400
+            )
+    except Exception as e:
+        return JsonResponse(
+            {'error': f'Could not look up auth user: {str(e)}'},
+            status=500
+        )
+
+    # Upsert the profile row (handles both: trigger already ran, or hasn't yet)
+    try:
+        supabase_admin \
+            .from_('profiles') \
+            .upsert({
+                'id':               user_id,
+                'phone':            phone_number,
+                'full_name':        full_name,
+                'language':         preferred_language,
+                'voice_assistance': voice_assistant_enabled,
+                'role':             'farmer',
+            }) \
+            .execute()
 
         # Fetch the completed profile
         profile = supabase_admin \
             .from_('profiles') \
             .select('*') \
-            .eq('phone', phone_number) \
+            .eq('id', user_id) \
             .single() \
             .execute()
 
@@ -492,9 +515,9 @@ def update_profile(request):
     Body: {
         "full_name": "Ali Khan",
         "avatar_url": "https://...",
-        "region": "Punjab",
+        "region": "Punjab", (or "location")
         "username": "ali_khan",
-        "language": "ur",
+        "language": "ur", (or "preferred_language")
         "voice_assistance": true
     }
 
@@ -506,6 +529,14 @@ def update_profile(request):
         body = json.loads(request.body)
     except json.JSONDecodeError:
         return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    # Map Android app field names to DB field names
+    if 'location' in body:
+        body['region'] = body.pop('location')
+    if 'preferred_language' in body:
+        body['language'] = body.pop('preferred_language')
+    if 'voice_assistant_enabled' in body:
+        body['voice_assistance'] = body.pop('voice_assistant_enabled')
 
     # Whitelist allowed fields
     allowed = ['full_name', 'avatar_url', 'region', 'username', 'language', 'voice_assistance']
@@ -519,7 +550,8 @@ def update_profile(request):
         return JsonResponse({'detail': 'language must be one of: en, ur, pa'}, status=400)
 
     try:
-        supabase \
+        # Use supabase_admin to bypass RLS, since we already verified the user via @require_auth
+        supabase_admin \
             .from_('profiles') \
             .update(update_data) \
             .eq('id', request.user_id) \
@@ -528,21 +560,21 @@ def update_profile(request):
         # If language or voice changed, also update user_settings
         if 'language' in update_data or 'voice_assistance' in update_data:
             # Fetch current settings to fill in any missing values
-            current = supabase \
+            current = supabase_admin \
                 .from_('profiles') \
                 .select('language, voice_assistance') \
                 .eq('id', request.user_id) \
                 .single() \
                 .execute()
 
-            supabase.rpc('update_user_settings', {
+            supabase_admin.rpc('update_user_settings', {
                 'p_user_id':  request.user_id,
                 'p_language': current.data['language'],
                 'p_voice':    current.data['voice_assistance']
             }).execute()
 
         # Return updated profile
-        result = supabase \
+        result = supabase_admin \
             .from_('profiles') \
             .select('*') \
             .eq('id', request.user_id) \
