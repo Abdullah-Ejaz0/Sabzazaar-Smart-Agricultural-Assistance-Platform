@@ -77,11 +77,15 @@ def _extract_text_from_pdf(file_bytes):
 def _parse_soil_upload(upload):
     file_name = (upload.name or '').lower()
     is_pdf = file_name.endswith('.pdf') or upload.content_type == 'application/pdf'
+    is_txt = file_name.endswith('.txt') or upload.content_type == 'text/plain'
 
     file_bytes = upload.read()
     if is_pdf:
         raw_text = _extract_text_from_pdf(file_bytes)
         source = 'pdf'
+    elif is_txt:
+        raw_text = file_bytes.decode('utf-8', errors='ignore')
+        source = 'text'
     else:
         try:
             from PIL import Image

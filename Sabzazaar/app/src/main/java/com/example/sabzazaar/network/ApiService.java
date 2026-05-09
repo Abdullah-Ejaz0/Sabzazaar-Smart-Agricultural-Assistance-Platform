@@ -112,4 +112,10 @@ public interface ApiService {
     Call<Map<String, String>> uploadCommunityPhoto(
             @Part MultipartBody.Part photo
     );
+
+    @Multipart
+    @POST("api/soil/parse/save/")
+    Call<Map<String, Object>> parseSoilReportSave(
+            @Part MultipartBody.Part file
+    );
 }
