@@ -1,0 +1,11 @@
+Soil Health Report
+
+Sample ID: SH-001
+Date: 2026-05-09
+
+pH: 6.8
+Nitrogen: 14.5
+Phosphorus: 9.2
+Potassium: 120.0
+
+Notes: Sample report for OCR testing.
