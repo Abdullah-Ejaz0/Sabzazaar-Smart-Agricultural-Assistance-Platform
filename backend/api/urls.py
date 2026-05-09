@@ -97,6 +97,8 @@ urlpatterns = [
     # ── Soil health ────────────────────────────────────────────
     path('soil/latest/',                 soil_views.latest_soil),
     path('soil/',                        soil_views.save_soil),
+    path('soil/parse/',                  soil_views.parse_soil_report),
+    path('soil/parse/save/',             soil_views.parse_soil_report_save),
 
     # ── Community ──────────────────────────────────────────────
     path('community/',                   community_views.community_feed),
