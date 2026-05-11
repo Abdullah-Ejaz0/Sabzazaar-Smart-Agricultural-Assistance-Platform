@@ -75,3 +75,5 @@ pdf2image
 pdfplumber
 Pillow
 opencv-python
+httpcore
+httpx
