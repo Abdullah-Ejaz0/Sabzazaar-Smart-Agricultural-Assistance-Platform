@@ -109,7 +109,8 @@
                 android:minLines="5"
                 android:padding="16dp"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textCursorDrawable="@drawable/green_cursor" />
 
             <CheckBox
                 android:id="@+id/cbVerified"
@@ -119,7 +120,8 @@
                 android:text="Mark as verified answer"
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
-                android:checked="true" />
+                android:checked="true"
+                android:buttonTint="@color/green" />
 
             <LinearLayout
                 android:layout_width="match_parent"

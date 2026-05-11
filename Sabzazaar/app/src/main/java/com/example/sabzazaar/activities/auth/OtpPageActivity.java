@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -149,6 +151,18 @@ public class OtpPageActivity extends AppCompatActivity {
                     }
                 }
                 @Override public void afterTextChanged(Editable s) {}
+            });
+
+            // Handle backspace
+            boxes[i].setOnKeyListener((v, keyCode, event) -> {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL) {
+                    if (boxes[index].getText().toString().isEmpty() && index > 0) {
+                        boxes[index - 1].requestFocus();
+                        boxes[index - 1].setText(""); // Optional: clear previous box on backspace
+                        return true;
+                    }
+                }
+                return false;
             });
         }
     }

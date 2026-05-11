@@ -112,6 +112,7 @@
             android:inputType="phone"
             android:textSize="18sp"
             android:textColor="#000000"
+            android:textCursorDrawable="@drawable/green_cursor"
             android:background="@android:color/transparent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
